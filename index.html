@@ -4,69 +4,738 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Navbar Bootstrap</title>
-    <!-- Tambahkan link Bootstrap CSS -->
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat">
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet"
-        integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
-    <link rel="stylesheet" href="style.css">
+    <title>My Portfolio</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f8fafc;
+            scroll-behavior: smooth;
+        }
+
+        .gradient-bg {
+            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        }
+
+        .card-hover:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+        }
+
+        .timeline-item::before {
+            content: '';
+            position: absolute;
+            left: -38px;
+            top: 0;
+            width: 20px;
+            height: 20px;
+            border-radius: 50%;
+            background: #8b5cf6;
+            border: 4px solid #e9d5ff;
+        }
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            left: 33px;
+            top: 0;
+            height: 100%;
+            width: 2px;
+            background: #ddd6fe;
+        }
+
+        .skill-bar {
+            height: 8px;
+            border-radius: 4px;
+            background: #e9d5ff;
+        }
+
+        .skill-progress {
+            height: 100%;
+            border-radius: 4px;
+            background: linear-gradient(90deg, #8b5cf6, #6366f1);
+            transition: width 1.5s ease-in-out;
+        }
+
+        .project-card {
+            perspective: 1000px;
+        }
+
+        .project-inner {
+            transition: transform 0.6s;
+            transform-style: preserve-3d;
+            position: relative;
+            height: 100%;
+            width: 100%;
+        }
+
+        .project-card:hover .project-inner {
+            transform: rotateY(180deg);
+        }
+
+        .project-front,
+        .project-back {
+            backface-visibility: hidden;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+            border-radius: 0.5rem;
+        }
+
+        .project-front {
+            z-index: 2;
+            transform: rotateY(0deg);
+        }
+
+        .project-back {
+            transform: rotateY(180deg);
+            z-index: 1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+
+            50% {
+                transform: translateY(-10px);
+            }
+
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
+        }
+
+        .fade-in {
+            opacity: 0;
+            transition: opacity 1s ease-in;
+        }
+
+        .fade-in.visible {
+            opacity: 1;
+        }
+    </style>
 </head>
 
-<body>
-    <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg fixed-top">
-        <!-- Menggunakan bg-dark untuk warna latar belakang yang gelap -->
-        <a class="navbar-brand ms-5" href="#">Iqbal</a>
-        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav"
-            aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-        </button>
-        <div class="collapse navbar-collapse" id="navbarNav">
-            <ul class="navbar-nav ms-auto me-5">
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Home</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">About</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Services</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Client</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Portof</a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" href="#">Contact</a>
-                </li>
-            </ul>
+<body class="text-gray-800">
+    <!-- Navigation -->
+    <nav class="fixed w-full bg-white shadow-md z-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex justify-between items-center h-16">
+                <div class="flex items-center">
+                    <span
+                        class="text-xl font-bold gradient-text bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-500">Portfolio</span>
+                </div>
+                <div class="hidden md:flex space-x-8">
+                    <a href="#home" class="text-gray-700 hover:text-indigo-500 transition">Home</a>
+                    <a href="#about" class="text-gray-700 hover:text-indigo-500 transition">About</a>
+                    <a href="#experience" class="text-gray-700 hover:text-indigo-500 transition">Experience</a>
+                    <a href="#projects" class="text-gray-700 hover:text-indigo-500 transition">Projects</a>
+                    <a href="#contact" class="text-gray-700 hover:text-indigo-500 transition">Contact</a>
+                </div>
+                <div class="md:hidden">
+                    <button class="mobile-menu-button p-2 focus:outline-none">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
+                            xmlns="http://www.w3.org/2000/svg">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+                                d="M4 6h16M4 12h16M4 18h16"></path>
+                        </svg>
+                    </button>
+                </div>
+            </div>
+        </div>
+        <!-- Mobile menu -->
+        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
+            <a href="#home" class="block py-2 px-4 text-sm hover:bg-gray-100">Home</a>
+            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-100">About</a>
+            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-100">Experience</a>
+            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-100">Projects</a>
+            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-100">Contact</a>
         </div>
     </nav>
-    <div class="jumbotron m-0 bg-dark text-light">
-        <h4>Selamat Datang</h4>
-        <div class="typing-text my-4">
-            <span id="text" style="visibility: hidden;"></span>
-            <span class="caret"></span>
-        </div>
-        <p>Deskripsi singkat tentang diri Anda atau proyek Anda.</p>
-    </div>
-    <div class="jumbotron m-0">
-        <h1>Selamat Datang di Portofolio Saya</h1>
-        <p>Deskripsi singkat tentang diri Anda atau proyek Anda.</p>
-    </div>
 
-    <!-- Tambahkan link Bootstrap JavaScript (jQuery dan Popper.js) -->
-    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"
-        integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p"
-        crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js"
-        integrity="sha384-cVKIPhGWiC2Al4u+LWgxfKTRIcfu0JTxR+EQDz/bgldoEyl4H0zUF0QKbrJ0EcQF"
-        crossorigin="anonymous"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
-    <script src="script.js">
-        
+    <!-- Hero Section -->
+    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
+                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Ahmad Iqbal
+                            Agyan</span></h1>
+                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Software Engineer</h2>
+                    <p class="text-lg mb-8 opacity-90">I build efficient, scalable software solutions using modern
+                        technologies and industry best practices.</p>
+                    <div class="flex space-x-4">
+                        <a href="#contact"
+                            class="px-6 py-3 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">Hire
+                            Me</a>
+                        <a href="#projects"
+                            class="px-6 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition">View
+                            Work</a>
+                    </div>
+                </div>
+                <div class="md:w-1/2 flex justify-center fade-in">
+                    <div class="relative w-64 h-64 md:w-80 md:h-80">
+                        <div class="absolute inset-0 bg-indigo-400 rounded-full opacity-20 blur-xl"></div>
+                        <img src="1705910921273.jpeg" alt="Profile"
+                            class="relative w-full h-full rounded-full object-cover border-4 border-white floating">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">About <span class="text-indigo-600">Me</span></h2>
+
+            <div class="flex flex-col md:flex-row items-center">
+                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center fade-in">
+                    <div class="relative w-48 h-48 md:w-64 md:h-64">
+                        <div class="absolute inset-0 bg-purple-200 rounded-lg transform rotate-6"></div>
+                        <img src="1705910921273.jpeg" alt="About Me"
+                            class="relative w-full h-full rounded-lg object-cover border-4 border-white">
+                    </div>
+                </div>
+
+                <div class="md:w-2/3 md:pl-12 fade-in">
+                    <h3 class="text-2xl font-semibold mb-4">Who am I?</h3>
+                    <p class="text-gray-600 mb-6">
+                        I'm a software engineer with 3 years of experience building modern, responsive applications
+                        across web and mobile platforms.
+                        I specialize in frontend technologies like React, Vue.js, and Flutter, and have hands-on
+                        experience with backend frameworks such as Golang, NestJS, Django, and FastAPI.
+                        My focus is on delivering intuitive, scalable, and high-performance software that enhances user
+                        experience and meets business goals.
+                    </p>
+
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
+                        <div>
+                            <p class="font-medium"><span class="text-indigo-600">Name:</span> Ahmad Iqbal Agyan</p>
+                            <p class="font-medium"><span class="text-indigo-600">Email:</span> iqbal.agyan@gmail.com</p>
+                        </div>
+                        <div>
+                            <p class="font-medium"><span class="text-indigo-600">From:</span> Yogyakarta</p>
+                        </div>
+                    </div>
+
+                    <div class="mb-8">
+                        <h4 class="text-xl font-semibold mb-4">My Skills</h4>
+                        <div class="space-y-4">
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Website</span>
+                                    <span>95%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 95%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Backend Programming</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Mobile</span>
+                                    <span>85%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 85%"></div>
+                                </div>
+                            </div>
+                            <div>
+                                <div class="flex justify-between mb-1">
+                                    <span>Problem Solving</span>
+                                    <span>90%</span>
+                                </div>
+                                <div class="skill-bar">
+                                    <div class="skill-progress" style="width: 90%"></div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <a href="CV.pdf"
+                        class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition inline-block">
+                        Download CV <i class="fas fa-download ml-2"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Experience Section -->
+    <section id="experience" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-12 fade-in">My <span class="text-indigo-600">Experience</span>
+            </h2>
+
+            <div class="relative pl-16 timeline fade-in">
+                <!-- Timeline Item 2 -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="flex items-center mb-2">
+                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-laptop-code text-purple-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Software Engineer</h3>
+                                <p class="text-purple-600">Widya Robotics • 2024 - Now</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Developed desktop application for LiDAR Measurements using Vue.js, Electron, and NestJS with
+                            ROSBridge.
+                            Reduced page load times by optimizing app.
+                            Create new inovations features for application.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 2 -->
+                <div class="relative mb-12 timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="flex items-center mb-2">
+                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-code text-pink-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Web Developer</h3>
+                                <p class="text-pink-600">Technomedic • 2023 - 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Built and maintained websites for hospital management (SIMRS).
+                            Worked with HTML, CSS, JavaScript and PHP.
+                            Gained experience with responsive design and cross-browser compatibility.
+                        </p>
+                    </div>
+                </div>
+
+                <!-- Timeline Item 3 -->
+                <div class="relative timeline-item">
+                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
+                        <div class="flex items-center mb-2">
+                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
+                                <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
+                            </div>
+                            <div>
+                                <h3 class="text-xl font-semibold">Informatics Degree</h3>
+                                <p class="text-blue-600">Amikom University • 2020 - 2024</p>
+                            </div>
+                        </div>
+                        <p class="text-gray-600">
+                            Graduated with honors. Specialized in Software Development.
+                            Completed coursework in web development, algorithms, and database systems.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section id="projects" class="py-16 bg-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 fade-in">My <span class="text-indigo-600">Projects</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto fade-in">
+                Here are some of my recent projects. Each one was carefully crafted to solve specific problems and
+                deliver exceptional user experiences.
+            </p>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
+                <!-- Project 1 -->
+                <div class="project-card h-80 relative">
+                    <div class="project-inner h-full w-full rounded-lg shadow-md">
+
+                        <div class="project-front h-full w-full bg-indigo-50 p-6">
+                            <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-shopping-cart text-indigo-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Kaku (Food Ordering platform)</h3>
+                            <p class="text-gray-600 mb-4">
+                                A full-featured food order with cart functionality and Scan table QR Code for order.
+                            </p>
+                            <div class="flex flex-wrap gap-2">
+                                <span
+                                    class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Flutter</span>
+                                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">CodeIgniter
+                                    3</span>
+                                <span
+                                    class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">PostgreSQL</span>
+                            </div>
+                        </div>
+
+                        <div
+                            class="project-back h-full w-full bg-indigo-600 text-white p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
+                            <ul class="space-y-2 text-center">
+                                <li>Product catalog with filters</li>
+                                <li>User authentication</li>
+                                <li>Scan QR Code</li>
+                                <li>Admin dashboard</li>
+                            </ul>
+                            <a href="#"
+                                class="mt-6 px-4 py-2 bg-white text-indigo-600 rounded font-medium hover:bg-gray-100 transition">
+                                View Project
+                            </a>
+                        </div>
+
+                    </div>
+                </div>
+
+
+                <!-- Project 2 -->
+                <div class="project-card h-80 relative">
+                    <div class="project-inner h-full w-full rounded-lg shadow-md">
+                        <div class="project-front h-full w-full bg-purple-50 p-6">
+                            <div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Analytics Dashboard for Load Scanner</h3>
+                            <p class="text-gray-600 mb-4">Interactive data visualization tool for business metrics and
+                                KPIs.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Vue.js</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Chart.js</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">NestJS</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Fluentbit</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Loki</span>
+                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Timescale</span>
+                            </div>
+                        </div>
+                        <div
+                            class="project-back h-full w-full bg-purple-600 text-white p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
+                            <ul class="space-y-2 text-center">
+                                <li>Customizable dashboards</li>
+                                <li>Real-time data updates</li>
+                                <li>Filters time, interval fetch, etc</li>
+                            </ul>
+                            <a href="#"
+                                class="mt-6 px-4 py-2 bg-white text-purple-600 rounded font-medium hover:bg-gray-100 transition">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card h-80 relative">
+                    <div class="project-inner h-full w-full rounded-lg shadow-md">
+                        <div class="project-front h-full w-full bg-pink-50 p-6">
+                            <div class="w-14 h-14 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-mobile-alt text-pink-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">MoNo (Money Management Mobile App)</h3>
+                            <p class="text-gray-600 mb-4">Money management application and
+                                progress charts.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Flutter</span>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">SQLite</span>
+                                <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Firebase</span>
+                            </div>
+                        </div>
+                        <div
+                            class="project-back h-full w-full bg-pink-600 text-white p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
+                            <ul class="space-y-2 text-center">
+                                <li>Expense Tracking</li>
+                                <li>Income Management</li>
+                                <li>Budget Planning</li>
+                                <li>Reports & Visualizations</li>
+                            </ul>
+                            <a href="#"
+                                class="mt-6 px-4 py-2 bg-white text-pink-600 rounded font-medium hover:bg-gray-100 transition">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card h-80 relative">
+                    <div class="project-inner h-full w-full rounded-lg shadow-md">
+                        <div class="project-front h-full w-full bg-blue-50 p-6">
+                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-briefcase text-blue-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">ERP</h3>
+                            <p class="text-gray-600 mb-4">Software system that helps organizations manage and integrate their core business processes.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Vue</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Gin</span>
+                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">PostgreSQL</span>
+                            </div>
+                        </div>
+                        <div
+                            class="project-back h-full w-full bg-blue-600 text-white p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
+                            <ul class="space-y-2 text-center">
+                                <li>Finance & Accounting</li>
+                                <li>Inventory & Supply Chain Management</li>
+                                <li>Human Resource Management</li>
+                                <li>Manufacturing & Production</li>
+                            </ul>
+                            <a href="#"
+                                class="mt-6 px-4 py-2 bg-white text-blue-600 rounded font-medium hover:bg-gray-100 transition">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card h-80 relative">
+                    <div class="project-inner h-full w-full rounded-lg shadow-md">
+                        <div class="project-front h-full w-full bg-green-50 p-6">
+                            <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-map-marked-alt text-green-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">WebGIS</h3>
+                            <p class="text-gray-600 mb-4"> Designed to support decision-making processes across various domains.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">React</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Leaflet</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">FastAPI</span>
+                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">PostGIS</span>
+                            </div>
+                        </div>
+                        <div
+                            class="project-back h-full w-full bg-green-600 text-white p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
+                            <ul class="space-y-2 text-center">
+                                <li>Interactive maps</li>
+                                <li>Layer Management</li>
+                                <li>Upload Assets SHP & GeoJSON</li>
+                                <li>Custom Markers & Popups</li>
+                            </ul>
+                            <a href="#"
+                                class="mt-6 px-4 py-2 bg-white text-green-600 rounded font-medium hover:bg-gray-100 transition">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card h-80 relative">
+                    <div class="project-inner h-full w-full rounded-lg shadow-md">
+                        <div class="project-front h-full w-full bg-yellow-50 p-6">
+                            <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
+                                <i class="fas fa-message text-yellow-600 text-2xl"></i>
+                            </div>
+                            <h3 class="text-xl font-bold mb-2">Chat Messaging</h3>
+                            <p class="text-gray-600 mb-4">Platform for sending and receiving messages from other users.</p>
+                            <div class="flex flex-wrap gap-2">
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Flutter</span>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Matrix</span>
+                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Postgres</span>
+                            </div>
+                        </div>
+                        <div
+                            class="project-back h-full w-full bg-yellow-600 text-white p-6 flex flex-col justify-center items-center">
+                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
+                            <ul class="space-y-2 text-center">
+                                <li>User Authentication</li>
+                                <li>Group Chat</li>
+                                <li>Media Sharing</li>
+                                <li>Push Notifications</li>
+                            </ul>
+                            <a href="#"
+                                class="mt-6 px-4 py-2 bg-white text-yellow-600 rounded font-medium hover:bg-gray-100 transition">View
+                                Project</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-16 bg-gray-50">
+        <div class="max-w-6xl mx-auto px-4">
+            <h2 class="text-3xl font-bold text-center mb-4 fade-in">Get In <span class="text-indigo-600">Touch</span>
+            </h2>
+            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto fade-in">
+                Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+            </p>
+
+            <div class="flex flex-col md:flex-row gap-12 fade-in">
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md">
+                        <h3 class="text-xl font-semibold mb-6">Send me a message</h3>
+                        <form>
+                            <div class="mb-4">
+                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
+                                <input type="text" id="name"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="email" class="block text-gray-700 mb-2">Your Email</label>
+                                <input type="email" id="email"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div class="mb-4">
+                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
+                                <input type="text" id="subject"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
+                            </div>
+                            <div class="mb-6">
+                                <label for="message" class="block text-gray-700 mb-2">Message</label>
+                                <textarea id="message" rows="4"
+                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
+                            </div>
+                            <button type="submit"
+                                class="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition">
+                                Send Message <i class="fas fa-paper-plane ml-2"></i>
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <div class="md:w-1/2">
+                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
+                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
+                        <p class="text-gray-600 mb-8">
+                            I'm available for freelance work and full-time positions.
+                            Feel free to contact me using any of the methods below.
+                        </p>
+
+                        <div class="space-y-6">
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-map-marker-alt text-indigo-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Location</h4>
+                                    <p class="text-gray-600">Sleman, Yogyakarta</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-envelope text-purple-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Email</h4>
+                                    <p class="text-gray-600">iqbal.agyan@gmail.com</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-phone-alt text-pink-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Phone</h4>
+                                    <p class="text-gray-600">+62-895-6344-31764</p>
+                                </div>
+                            </div>
+
+                            <div class="flex items-start">
+                                <div
+                                    class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
+                                    <i class="fas fa-globe text-blue-600"></i>
+                                </div>
+                                <div>
+                                    <h4 class="font-semibold">Website</h4>
+                                    <p class="text-gray-600">www.airmax21.github.io</p>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-8">
+                            <h4 class="font-semibold mb-4">Follow Me</h4>
+                            <div class="flex space-x-4">
+                                <a href="#"
+                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition">
+                                    <i class="fab fa-github"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition">
+                                    <i class="fab fa-linkedin-in"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-400 transition">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                                <a href="#"
+                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-red-100 hover:text-red-600 transition">
+                                    <i class="fab fa-facebook"></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 bg-gray-900 text-white">
+        <div class="max-w-6xl mx-auto px-4">
+            <div class="flex flex-col md:flex-row justify-between items-center">
+                <div class="mb-4 md:mb-0">
+                    <span
+                        class="text-xl font-bold gradient-text bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-300">Portfolio</span>
+                </div>
+                <div class="text-gray-400 text-sm">
+                    © 2025 Ahmad Iqbal Agyan. All rights reserved.
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
+            document.querySelector('.mobile-menu').classList.toggle('hidden');
+        });
+
+        const fadeElements = document.querySelectorAll('.fade-in');
+
+        const fadeInOnScroll = function () {
+            fadeElements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (elementTop < windowHeight - 100) {
+                    element.classList.add('visible');
+                }
+            });
+        };
+
+        fadeInOnScroll();
+
+        window.addEventListener('scroll', fadeInOnScroll);
+
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+
+
+                document.querySelector('.mobile-menu').classList.add('hidden');
+            });
+        });
     </script>
 </body>
 
