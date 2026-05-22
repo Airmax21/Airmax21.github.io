@@ -1,742 +1,1422 @@
-<!DOCTYPE html>
-<html lang="en">
+<!doctype html>
+<html class="dark" lang="id">
+  <head>
+    <meta charset="utf-8" />
+    <meta content="width=device-width, initial-scale=1.0" name="viewport" />
+    <title>Iqbal.DEV - Portfolio Profesional</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com" rel="preconnect" />
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Fira+Code:wght@400;500;600&amp;family=Literata:ital,opsz,wght@0,7..72,200..900;1,7..72,200..900&amp;family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&amp;display=swap"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap"
+      rel="stylesheet"
+    />
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>My Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <!-- GSAP Core & ScrollTrigger for High-Performance Animations -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
+
+    <script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            colors: {
+              "surface-dim": "#dbd7cf",
+              "surface-tint": "#4a7c59",
+              "error-container": "#ffdad8",
+              "on-tertiary-fixed-variant": "#554020",
+              "on-secondary": "#ffffff",
+              "on-error": "#ffffff",
+              "on-background": "#2e3230",
+              "on-primary-fixed-variant": "#2a6038",
+              "on-primary-fixed": "#002110",
+              "surface-bright": "#faf6f0",
+              "on-tertiary-fixed": "#221a05",
+              "tertiary-fixed": "#f8e0a8",
+              tertiary: "#705c30",
+              "on-surface-variant": "#4a4e4a",
+              "on-surface": "#2e3230",
+              "surface-container": "#f0ece4",
+              "on-tertiary-container": "#554020",
+              "on-tertiary": "#ffffff",
+              "primary-fixed": "#c8e8d0",
+              "on-secondary-fixed": "#1e1a13",
+              "tertiary-container": "#c4a66a",
+              "secondary-fixed-dim": "#d4ccbf",
+              "inverse-surface": "#2e3230",
+              background: "#faf6f0",
+              "surface-container-low": "#f5f1ea",
+              surface: "#faf6f0",
+              "on-primary": "#ffffff",
+              "inverse-on-surface": "#f5f0e8",
+              secondary: "#6b6358",
+              "primary-container": "#78a886",
+              "on-primary-container": "#d8f0de",
+              primary: "#4a7c59",
+              "on-secondary-fixed-variant": "#4a4538",
+              error: "#b83230",
+              "outline-variant": "#c4c8bc",
+              "primary-fixed-dim": "#8ecf9e",
+              "on-error-container": "#690005",
+              "inverse-primary": "#8ecf9e",
+              outline: "#74796e",
+              "on-secondary-container": "#5e5548",
+              "secondary-container": "#f0e8db",
+              "tertiary-fixed-dim": "#dcc48e",
+              "secondary-fixed": "#f0e8db",
+              "surface-variant": "#e4e0d8",
+              "surface-container-lowest": "#ffffff",
+              "surface-container-high": "#eae6de",
+              "surface-container-highest": "#e4e0d8",
+            },
+            borderRadius: {
+              DEFAULT: "0.5rem",
+              lg: "1rem",
+              xl: "1.5rem",
+              full: "9999px",
+            },
+            spacing: {
+              unit: "8px",
+              "section-gap": "80px",
+              gutter: "24px",
+              "stack-sm": "8px",
+              "margin-mobile": "16px",
+              "container-max": "1200px",
+              "stack-md": "16px",
+            },
+            fontFamily: {
+              headline: ["Literata"],
+              display: ["Literata"],
+              body: ["Nunito Sans"],
+              label: ["Nunito Sans"],
+              mono: ["Fira Code"],
+            },
+            fontSize: {
+              "label-md": [
+                "12px",
+                { lineHeight: "1", letterSpacing: "0.05em", fontWeight: "600" },
+              ],
+              "headline-lg": [
+                "36px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              display: [
+                "56px",
+                {
+                  lineHeight: "1.1",
+                  letterSpacing: "-0.04em",
+                  fontWeight: "800",
+                },
+              ],
+              "headline-md": [
+                "24px",
+                {
+                  lineHeight: "1.3",
+                  letterSpacing: "-0.01em",
+                  fontWeight: "600",
+                },
+              ],
+              "headline-lg-mobile": [
+                "28px",
+                {
+                  lineHeight: "1.2",
+                  letterSpacing: "-0.02em",
+                  fontWeight: "700",
+                },
+              ],
+              "body-lg": ["16px", { lineHeight: "1.6", fontWeight: "400" }],
+              "body-md": ["14px", { lineHeight: "1.6", fontWeight: "400" }],
+            },
+          },
+        },
+      };
+    </script>
     <style>
-        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap');
+      .material-symbols-outlined {
+        font-variation-settings:
+          "FILL" 0,
+          "wght" 400,
+          "GRAD" 0,
+          "opsz" 24;
+      }
+      .text-emerald-primary {
+        color: #8ecf9e;
+      }
+      .bg-emerald-primary {
+        background-color: #8ecf9e;
+      }
+      .border-emerald-primary {
+        border-color: #8ecf9e;
+      }
 
-        body {
-            font-family: 'Poppins', sans-serif;
-            background-color: #f8fafc;
-            scroll-behavior: smooth;
+      .dark body {
+        background-color: #1a1c1a;
+        color: #dbd7cf;
+      }
+      .dark .bg-surface-container-lowest {
+        background-color: #242725;
+      }
+      .dark .bg-surface-container-low {
+        background-color: #1e201e;
+      }
+      .dark .bg-surface-container {
+        background-color: #2a2d2a;
+      }
+
+      .glow-accent {
+        text-shadow: 0 0 10px rgba(142, 207, 158, 0.5);
+      }
+      .box-glow {
+        transition:
+          border-color 0.3s ease,
+          box-shadow 0.3s ease,
+          transform 0.3s ease;
+      }
+      .box-glow:hover {
+        box-shadow: 0 0 20px rgba(142, 207, 158, 0.25);
+        border-color: #8ecf9e;
+        transform: translateY(-4px);
+      }
+
+      /* Terminal Cursor Animation */
+      .terminal-cursor::after {
+        content: "█";
+        animation: blink 1s step-end infinite;
+        margin-left: 4px;
+        color: #8ecf9e;
+      }
+      @keyframes blink {
+        from,
+        to {
+          opacity: 0;
         }
-
-        .gradient-bg {
-            background: linear-gradient(135deg, #6366f1 0%, #8b5cf6 50%, #d946ef 100%);
+        50% {
+          opacity: 1;
         }
+      }
 
-        .card-hover:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-        }
+      html {
+        scroll-behavior: smooth;
+      }
 
-        .timeline-item::before {
-            content: '';
-            position: absolute;
-            left: -38px;
-            top: 0;
-            width: 20px;
-            height: 20px;
-            border-radius: 50%;
-            background: #8b5cf6;
-            border: 4px solid #e9d5ff;
-        }
-
-        .timeline::before {
-            content: '';
-            position: absolute;
-            left: 33px;
-            top: 0;
-            height: 100%;
-            width: 2px;
-            background: #ddd6fe;
-        }
-
-        .skill-bar {
-            height: 8px;
-            border-radius: 4px;
-            background: #e9d5ff;
-        }
-
-        .skill-progress {
-            height: 100%;
-            border-radius: 4px;
-            background: linear-gradient(90deg, #8b5cf6, #6366f1);
-            transition: width 1.5s ease-in-out;
-        }
-
-        .project-card {
-            perspective: 1000px;
-        }
-
-        .project-inner {
-            transition: transform 0.6s;
-            transform-style: preserve-3d;
-            position: relative;
-            height: 100%;
-            width: 100%;
-        }
-
-        .project-card:hover .project-inner {
-            transform: rotateY(180deg);
-        }
-
-        .project-front,
-        .project-back {
-            backface-visibility: hidden;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            top: 0;
-            left: 0;
-            border-radius: 0.5rem;
-        }
-
-        .project-front {
-            z-index: 2;
-            transform: rotateY(0deg);
-        }
-
-        .project-back {
-            transform: rotateY(180deg);
-            z-index: 1;
-        }
-
-        @keyframes float {
-            0% {
-                transform: translateY(0px);
-            }
-
-            50% {
-                transform: translateY(-10px);
-            }
-
-            100% {
-                transform: translateY(0px);
-            }
-        }
-
-        .floating {
-            animation: float 3s ease-in-out infinite;
-        }
-
-        .fade-in {
-            opacity: 0;
-            transition: opacity 1s ease-in;
-        }
-
-        .fade-in.visible {
-            opacity: 1;
-        }
+      .reveal-on-scroll {
+        visibility: hidden;
+      }
     </style>
-</head>
+  </head>
+  <body
+    class="bg-background text-on-surface font-body antialiased overflow-x-hidden"
+  >
+    <!-- TopAppBar -->
+    <header
+      class="fixed top-0 w-full z-50 bg-[#1a1c1a]/90 backdrop-blur-md border-b border-outline/30"
+    >
+      <div
+        class="flex justify-between items-center max-w-container-max mx-auto px-gutter h-16"
+      >
+        <a
+          class="font-display text-headline-md font-bold text-inverse-primary glow-accent tracking-wider"
+          href="#"
+          >Iqbal.DEV</a
+        >
+        <nav class="hidden md:flex gap-stack-md" id="main-nav">
+          <a
+            class="font-mono text-label-md text-inverse-primary border-b border-inverse-primary pb-1 transition-all"
+            href="#home"
+            >&gt; home</a
+          >
+          <a
+            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+            href="#projects"
+            >&gt; projects</a
+          >
+          <a
+            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+            href="#career"
+            >&gt; career</a
+          >
+          <a
+            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+            href="#about"
+            >&gt; philosophy</a
+          >
+          <a
+            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+            href="#contact"
+            >&gt; contact</a
+          >
+        </nav>
+      </div>
+    </header>
 
-<body class="text-gray-800">
-    <!-- Navigation -->
-    <nav class="fixed w-full bg-white shadow-md z-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex justify-between items-center h-16">
-                <div class="flex items-center">
-                    <span
-                        class="text-xl font-bold gradient-text bg-clip-text text-transparent bg-gradient-to-r from-purple-600 to-indigo-500">Portfolio</span>
-                </div>
-                <div class="hidden md:flex space-x-8">
-                    <a href="#home" class="text-gray-700 hover:text-indigo-500 transition">Home</a>
-                    <a href="#about" class="text-gray-700 hover:text-indigo-500 transition">About</a>
-                    <a href="#experience" class="text-gray-700 hover:text-indigo-500 transition">Experience</a>
-                    <a href="#projects" class="text-gray-700 hover:text-indigo-500 transition">Projects</a>
-                    <a href="#contact" class="text-gray-700 hover:text-indigo-500 transition">Contact</a>
-                </div>
-                <div class="md:hidden">
-                    <button class="mobile-menu-button p-2 focus:outline-none">
-                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg">
-                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
-                                d="M4 6h16M4 12h16M4 18h16"></path>
-                        </svg>
-                    </button>
-                </div>
-            </div>
+    <main class="pt-20">
+      <!-- Hero Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter py-section-gap flex flex-col md:flex-row items-center gap-8"
+        id="home"
+      >
+        <div class="md:w-3/5" id="hero-text-container">
+          <h1
+            class="font-display text-display text-surface-bright mb-4 leading-tight opacity-0"
+            id="hero-title"
+          >
+            Hi, saya Iqbal.<br />
+            <span
+              class="text-inverse-primary glow-accent font-mono text-headline-lg terminal-cursor"
+              id="terminal-text"
+            ></span>
+          </h1>
+          <p
+            class="font-mono text-body-lg text-surface-variant mb-6 max-w-2xl border-l-2 border-inverse-primary pl-4 opacity-0"
+            id="hero-description"
+          >
+            Membangun arsitektur sistem yang skalabel, memimpin tim engineering
+            menuju keunggulan, dan mengoptimalkan infrastruktur data. Berfokus
+            pada pengiriman perangkat lunak yang tangguh dan efisien untuk skala
+            enterprise.
+          </p>
+          <a
+            class="inline-flex items-center gap-2 font-mono text-label-md border border-inverse-primary text-inverse-primary px-6 py-3 rounded hover:bg-inverse-primary/10 transition-colors duration-200 opacity-0"
+            id="hero-btn"
+            href="#projects"
+          >
+            [ Execute: View Projects ]
+            <span class="material-symbols-outlined text-[16px] animate-arrow"
+              >arrow_forward</span
+            >
+          </a>
         </div>
-        <!-- Mobile menu -->
-        <div class="mobile-menu hidden md:hidden bg-white shadow-lg">
-            <a href="#home" class="block py-2 px-4 text-sm hover:bg-gray-100">Home</a>
-            <a href="#about" class="block py-2 px-4 text-sm hover:bg-gray-100">About</a>
-            <a href="#experience" class="block py-2 px-4 text-sm hover:bg-gray-100">Experience</a>
-            <a href="#projects" class="block py-2 px-4 text-sm hover:bg-gray-100">Projects</a>
-            <a href="#contact" class="block py-2 px-4 text-sm hover:bg-gray-100">Contact</a>
+        <div
+          class="md:w-2/5 w-full flex justify-end relative opacity-0"
+          id="hero-image-container"
+        >
+          <div
+            class="w-full aspect-square bg-[#242725] rounded border border-outline/30 overflow-hidden box-glow transition-all duration-300 relative"
+          >
+            <div
+              class="absolute inset-0 bg-gradient-to-b from-transparent via-inverse-primary/5 to-transparent h-1/4 w-full top-0 left-0 pointer-events-none custom-scanner"
+            ></div>
+            <img
+              alt="Abstract geometric digital art representing clean code and modern design."
+              class="w-full h-full object-cover opacity-80 mix-blend-luminosity hover:mix-blend-normal transition-all duration-500"
+              src="./1705910921273.jpeg"
+            />
+          </div>
         </div>
-    </nav>
+      </section>
 
-    <!-- Hero Section -->
-    <section id="home" class="pt-24 pb-16 md:pt-32 md:pb-24 gradient-bg text-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/2 mb-10 md:mb-0 fade-in">
-                    <h1 class="text-4xl md:text-5xl font-bold mb-4">Hi, I'm <span class="text-yellow-300">Ahmad Iqbal
-                            Agyan</span></h1>
-                    <h2 class="text-2xl md:text-3xl font-semibold mb-6">Software Engineer</h2>
-                    <p class="text-lg mb-8 opacity-90">I build efficient, scalable software solutions using modern
-                        technologies and industry best practices.</p>
-                    <div class="flex space-x-4">
-                        <a href="#contact"
-                            class="px-6 py-3 bg-white text-indigo-600 rounded-lg font-medium hover:bg-gray-100 transition">Hire
-                            Me</a>
-                        <a href="#projects"
-                            class="px-6 py-3 border-2 border-white text-white rounded-lg font-medium hover:bg-white hover:text-indigo-600 transition">View
-                            Work</a>
-                    </div>
-                </div>
-                <div class="md:w-1/2 flex justify-center fade-in">
-                    <div class="relative w-64 h-64 md:w-80 md:h-80">
-                        <div class="absolute inset-0 bg-indigo-400 rounded-full opacity-20 blur-xl"></div>
-                        <img src="1705910921273.jpeg" alt="Profile"
-                            class="relative w-full h-full rounded-full object-cover border-4 border-white floating">
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section id="about" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">About <span class="text-indigo-600">Me</span></h2>
-
-            <div class="flex flex-col md:flex-row items-center">
-                <div class="md:w-1/3 mb-8 md:mb-0 flex justify-center fade-in">
-                    <div class="relative w-48 h-48 md:w-64 md:h-64">
-                        <div class="absolute inset-0 bg-purple-200 rounded-lg transform rotate-6"></div>
-                        <img src="1705910921273.jpeg" alt="About Me"
-                            class="relative w-full h-full rounded-lg object-cover border-4 border-white">
-                    </div>
-                </div>
-
-                <div class="md:w-2/3 md:pl-12 fade-in">
-                    <h3 class="text-2xl font-semibold mb-4">Who am I?</h3>
-                    <p class="text-gray-600 mb-6">
-                        I'm a software engineer with 3 years of experience building modern, responsive applications
-                        across web and mobile platforms.
-                        I specialize in frontend technologies like React, Vue.js, and Flutter, and have hands-on
-                        experience with backend frameworks such as Golang, NestJS, Django, and FastAPI.
-                        My focus is on delivering intuitive, scalable, and high-performance software that enhances user
-                        experience and meets business goals.
-                    </p>
-
-                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mb-8">
-                        <div>
-                            <p class="font-medium"><span class="text-indigo-600">Name:</span> Ahmad Iqbal Agyan</p>
-                            <p class="font-medium"><span class="text-indigo-600">Email:</span> iqbal.agyan@gmail.com</p>
-                        </div>
-                        <div>
-                            <p class="font-medium"><span class="text-indigo-600">From:</span> Yogyakarta</p>
-                        </div>
-                    </div>
-
-                    <div class="mb-8">
-                        <h4 class="text-xl font-semibold mb-4">My Skills</h4>
-                        <div class="space-y-4">
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span>Website</span>
-                                    <span>95%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 95%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span>Backend Programming</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span>Mobile</span>
-                                    <span>85%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 85%"></div>
-                                </div>
-                            </div>
-                            <div>
-                                <div class="flex justify-between mb-1">
-                                    <span>Problem Solving</span>
-                                    <span>90%</span>
-                                </div>
-                                <div class="skill-bar">
-                                    <div class="skill-progress" style="width: 90%"></div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <a href="CV.pdf"
-                        class="px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition inline-block">
-                        Download CV <i class="fas fa-download ml-2"></i>
-                    </a>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Experience Section -->
-    <section id="experience" class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-12 fade-in">My <span class="text-indigo-600">Experience</span>
+      <!-- Projects Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter py-section-gap border-t border-outline/30"
+        id="projects"
+      >
+        <div
+          class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal-on-scroll"
+        >
+          <div>
+            <h2 class="font-display text-headline-lg text-surface-bright mb-2">
+              Proyek Teknikal
             </h2>
+            <div class="w-16 h-[2px] bg-inverse-primary"></div>
+          </div>
 
-            <div class="relative pl-16 timeline fade-in">
-                <!-- Timeline Item 2 -->
-                <div class="relative mb-12 timeline-item">
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                        <div class="flex items-center mb-2">
-                            <div class="w-12 h-12 bg-purple-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-laptop-code text-purple-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold">Software Engineer</h3>
-                                <p class="text-purple-600">Widya Robotics • 2024 - Now</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            Developed desktop application for LiDAR Measurements using Vue.js, Electron, and NestJS with
-                            ROSBridge.
-                            Reduced page load times by optimizing app.
-                            Create new inovations features for application.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 2 -->
-                <div class="relative mb-12 timeline-item">
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                        <div class="flex items-center mb-2">
-                            <div class="w-12 h-12 bg-pink-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-code text-pink-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold">Web Developer</h3>
-                                <p class="text-pink-600">Technomedic • 2023 - 2024</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            Built and maintained websites for hospital management (SIMRS).
-                            Worked with HTML, CSS, JavaScript and PHP.
-                            Gained experience with responsive design and cross-browser compatibility.
-                        </p>
-                    </div>
-                </div>
-
-                <!-- Timeline Item 3 -->
-                <div class="relative timeline-item">
-                    <div class="bg-white p-6 rounded-lg shadow-md card-hover">
-                        <div class="flex items-center mb-2">
-                            <div class="w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center mr-4">
-                                <i class="fas fa-graduation-cap text-blue-600 text-xl"></i>
-                            </div>
-                            <div>
-                                <h3 class="text-xl font-semibold">Informatics Degree</h3>
-                                <p class="text-blue-600">Amikom University • 2020 - 2024</p>
-                            </div>
-                        </div>
-                        <p class="text-gray-600">
-                            Graduated with honors. Specialized in Software Development.
-                            Completed coursework in web development, algorithms, and database systems.
-                        </p>
-                    </div>
-                </div>
-            </div>
+          <!-- Dynamic Filter Controls -->
+          <div
+            class="flex flex-wrap gap-2 font-mono text-[11px]"
+            id="filter-controls"
+          >
+            <button
+              class="px-4 py-1.5 bg-inverse-primary text-[#1a1c1a] font-semibold rounded-sm transition-all border border-inverse-primary filter-btn"
+              data-filter="all"
+            >
+              ALL_PROJECTS
+            </button>
+            <button
+              class="px-4 py-1.5 bg-[#242725] text-surface-variant rounded-sm hover:text-inverse-primary transition-all border border-outline/30 filter-btn"
+              data-filter="backend"
+            >
+              BACKEND_WEB
+            </button>
+            <button
+              class="px-4 py-1.5 bg-[#242725] text-surface-variant rounded-sm hover:text-inverse-primary transition-all border border-outline/30 filter-btn"
+              data-filter="spatial"
+            >
+              GEOSPATIAL_GIS
+            </button>
+            <button
+              class="px-4 py-1.5 bg-[#242725] text-surface-variant rounded-sm hover:text-inverse-primary transition-all border border-outline/30 filter-btn"
+              data-filter="mobile"
+            >
+              MOBILE_APPS
+            </button>
+          </div>
         </div>
-    </section>
 
-    <!-- Projects Section -->
-    <section id="projects" class="py-16 bg-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4 fade-in">My <span class="text-indigo-600">Projects</span>
-            </h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto fade-in">
-                Here are some of my recent projects. Each one was carefully crafted to solve specific problems and
-                deliver exceptional user experiences.
+        <!-- Optimized Grid Container -->
+        <div
+          class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6"
+          id="projects-grid"
+        >
+          <!-- Project 1: Singa Banjar GIS -->
+          <div
+            class="group bg-[#242725] border border-outline/30 rounded overflow-hidden box-glow flex flex-col project-card"
+            data-category="spatial"
+          >
+            <div
+              class="aspect-video overflow-hidden bg-[#1e201e] border-b border-outline/30 relative"
+            >
+              <div
+                class="absolute inset-0 bg-inverse-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-300"
+              ></div>
+              <div
+                class="absolute top-2 left-2 bg-[#1a1c1a]/90 text-inverse-primary font-mono text-[9px] px-2 py-0.5 border border-inverse-primary/30 rounded-sm z-20"
+              >
+                GIS PLATFORM
+              </div>
+              <img
+                alt="Geospatial web dashboard interface"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-in-out"
+                src="./singabanjar.png"
+              />
+            </div>
+            <div class="p-5 flex-grow flex flex-col">
+              <h3
+                class="font-headline text-headline-md text-surface-bright mb-2 text-[19px] group-hover:text-inverse-primary transition-colors"
+              >
+                Project Singa Banjar
+              </h3>
+              <p
+                class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+              >
+                Sistem Informasi Geografis (GIS) untuk manajemen data desa dan
+                pemetaan aset tanah regional berbasis integrasi server spasial
+                layer vector tiles.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >GeoServer</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >PostGIS</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Vue 3</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Fastapi</span
+                >
+              </div>
+              <div
+                class="flex items-center mt-auto pt-3 border-t border-outline/30"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
+                  >map</span
+                >
+                <span class="font-mono text-[10px] text-surface-variant"
+                  >SHP/GDB Engine</span
+                >
+                <a
+                  class="font-mono text-label-md text-inverse-primary hover:text-[#1a1c1a] hover:bg-inverse-primary border border-inverse-primary/50 px-3 py-1 rounded-sm transition-all ml-auto flex items-center gap-1"
+                  href="https://singa-banjar.com"
+                  target="_blank"
+                >
+                  <span>&gt;_ EXECUTE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 2: High-Volume Log Analytics Dashboard -->
+          <div
+            class="group bg-[#242725] border border-outline/30 rounded overflow-hidden box-glow flex flex-col project-card"
+            data-category="backend"
+          >
+            <div
+              class="aspect-video overflow-hidden bg-[#1e201e] border-b border-outline/30 relative"
+            >
+              <div
+                class="absolute inset-0 bg-inverse-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-300"
+              ></div>
+              <div
+                class="absolute top-2 left-2 bg-[#1a1c1a]/90 text-inverse-primary font-mono text-[9px] px-2 py-0.5 border border-inverse-primary/30 rounded-sm z-20"
+              >
+                DATA PIPELINE
+              </div>
+              <img
+                alt="Log Activity analytics panel interface"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-in-out"
+                src="./log_analytics.png"
+              />
+            </div>
+            <div class="p-5 flex-grow flex flex-col">
+              <h3
+                class="font-headline text-headline-md text-surface-bright mb-2 text-[19px] group-hover:text-inverse-primary transition-colors"
+              >
+                Log Server Analytics Engine
+              </h3>
+              <p
+                class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+              >
+                Dashboard pemrosesan analitik performa dari data log aktivitas
+                sensor volume tinggi secara terpusat untuk monitoring stabilitas
+                metrics.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Vue 3</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Flutter</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Timescale</span
+                >
+              </div>
+              <div
+                class="flex items-center mt-auto pt-3 border-t border-outline/30"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
+                  >analytics</span
+                >
+                <span class="font-mono text-[10px] text-surface-variant"
+                  >Log Automated</span
+                >
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 3: Mobile Money Management -->
+          <div
+            class="group bg-[#242725] border border-outline/30 rounded overflow-hidden box-glow flex flex-col project-card"
+            data-category="mobile"
+          >
+            <div
+              class="aspect-video overflow-hidden bg-[#1e201e] border-b border-outline/30 relative"
+            >
+              <div
+                class="absolute inset-0 bg-inverse-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-300"
+              ></div>
+              <div
+                class="absolute top-2 left-2 bg-[#1a1c1a]/90 text-inverse-primary font-mono text-[9px] px-2 py-0.5 border border-inverse-primary/30 rounded-sm z-20"
+              >
+                FINANCIAL APP
+              </div>
+              <img
+                alt="Mobile finance tracker dashboard"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-in-out"
+                src="./mono.jpg"
+              />
+            </div>
+            <div class="p-5 flex-grow flex flex-col">
+              <h3
+                class="font-headline text-headline-md text-surface-bright mb-2 text-[19px] group-hover:text-inverse-primary transition-colors"
+              >
+                Mono Finance Mobile
+              </h3>
+              <p
+                class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+              >
+                Aplikasi seluler pelacak manajemen keuangan personal
+                berorientasi performa mikro, arsitektur monolitik bersih, dan
+                visualisasi chart data interaktif.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Flutter / Dart</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >SQLite</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Clean Arch</span
+                >
+              </div>
+              <div
+                class="flex items-center mt-auto pt-3 border-t border-outline/30"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
+                  >account_balance_wallet</span
+                >
+                <span class="font-mono text-[10px] text-surface-variant"
+                  >Local Storage Secure</span
+                >
+                <a
+                  class="font-mono text-label-md text-inverse-primary hover:text-[#1a1c1a] hover:bg-inverse-primary border border-inverse-primary/50 px-3 py-1 rounded-sm transition-all ml-auto flex items-center gap-1"
+                  href="https://github.com/Airmax21/mono"
+                  target="_blank"
+                >
+                  <span>&gt;_ EXECUTE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 4: Viseo Artikel Platform -->
+          <div
+            class="group bg-[#242725] border border-outline/30 rounded overflow-hidden box-glow flex flex-col project-card"
+            data-category="backend"
+          >
+            <div
+              class="aspect-video overflow-hidden bg-[#1e201e] border-b border-outline/30 relative"
+            >
+              <div
+                class="absolute inset-0 bg-inverse-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-300"
+              ></div>
+              <div
+                class="absolute top-2 left-2 bg-[#1a1c1a]/90 text-inverse-primary font-mono text-[9px] px-2 py-0.5 border border-inverse-primary/30 rounded-sm z-20"
+              >
+                CONTENT PLATFORM
+              </div>
+              <img
+                alt="News portal article display"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-in-out"
+                src="./viseoglobal.png"
+              />
+            </div>
+            <div class="p-5 flex-grow flex flex-col">
+              <h3
+                class="font-headline text-headline-md text-surface-bright mb-2 text-[19px] group-hover:text-inverse-primary transition-colors"
+              >
+                Viseo Portal
+              </h3>
+              <p
+                class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+              >
+                Platform portal berita dan manajemen artikel interaktif berskala
+                optimal dengan arsitektur rest-api cepat dan rendering konten
+                responsif.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Nuxt</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Strapi</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >SQLite</span
+                >
+              </div>
+              <div
+                class="flex items-center mt-auto pt-3 border-t border-outline/30"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
+                  >article</span
+                >
+                <span class="font-mono text-[10px] text-surface-variant"
+                  >SSR Optimized</span
+                >
+                <a
+                  class="font-mono text-label-md text-inverse-primary hover:text-[#1a1c1a] hover:bg-inverse-primary border border-inverse-primary/50 px-3 py-1 rounded-sm transition-all ml-auto flex items-center gap-1"
+                  href="https://viseoglobal.com"
+                  target="_blank"
+                >
+                  <span>&gt;_ EXECUTE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 5: AAAquatic Catalog -->
+          <div
+            class="group bg-[#242725] border border-outline/30 rounded overflow-hidden box-glow flex flex-col project-card"
+            data-category="backend"
+          >
+            <div
+              class="aspect-video overflow-hidden bg-[#1e201e] border-b border-outline/30 relative"
+            >
+              <div
+                class="absolute inset-0 bg-inverse-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-300"
+              ></div>
+              <div
+                class="absolute top-2 left-2 bg-[#1a1c1a]/90 text-inverse-primary font-mono text-[9px] px-2 py-0.5 border border-inverse-primary/30 rounded-sm z-20"
+              >
+                E-CATALOG
+              </div>
+              <img
+                alt="Fish aquarium layout digital web catalog"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-in-out"
+                src="./aaaquatic.png"
+              />
+            </div>
+            <div class="p-5 flex-grow flex flex-col">
+              <h3
+                class="font-headline text-headline-md text-surface-bright mb-2 text-[19px] group-hover:text-inverse-primary transition-colors"
+              >
+                AAAquatic Catalog
+              </h3>
+              <p
+                class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+              >
+                Sistem informasi katalog ikan hias digital terstruktur yang
+                dioptimalkan untuk kecepatan pencarian inventaris taksonomi
+                harian.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Laravel</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Tailwind</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Caching</span
+                >
+              </div>
+              <div
+                class="flex items-center mt-auto pt-3 border-t border-outline/30"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
+                  >database</span
+                >
+                <span class="font-mono text-[10px] text-surface-variant"
+                  >Fast Search Engine</span
+                >
+                <a
+                  class="font-mono text-label-md text-inverse-primary hover:text-[#1a1c1a] hover:bg-inverse-primary border border-inverse-primary/50 px-3 py-1 rounded-sm transition-all ml-auto flex items-center gap-1"
+                  href="https://aaa-aquatic.duckdns.org/"
+                  target="_blank"
+                >
+                  <span>&gt;_ EXECUTE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+
+          <!-- Project 6: SAW PAUD System -->
+          <div
+            class="group bg-[#242725] border border-outline/30 rounded overflow-hidden box-glow flex flex-col project-card"
+            data-category="backend"
+          >
+            <div
+              class="aspect-video overflow-hidden bg-[#1e201e] border-b border-outline/30 relative"
+            >
+              <div
+                class="absolute inset-0 bg-inverse-primary/10 mix-blend-overlay z-10 group-hover:bg-transparent transition-all duration-300"
+              ></div>
+              <div
+                class="absolute top-2 left-2 bg-[#1a1c1a]/90 text-inverse-primary font-mono text-[9px] px-2 py-0.5 border border-inverse-primary/30 rounded-sm z-20"
+              >
+                DECISION SUPPORT SYSTEM
+              </div>
+              <img
+                alt="Mathematical algorithm matrix layout evaluation panel"
+                class="w-full h-full object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-500 ease-in-out"
+                src="./saw-paud.png"
+              />
+            </div>
+            <div class="p-5 flex-grow flex flex-col">
+              <h3
+                class="font-headline text-headline-md text-surface-bright mb-2 text-[19px] group-hover:text-inverse-primary transition-colors"
+              >
+                SAW PAUD Evaluation
+              </h3>
+              <p
+                class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+              >
+                Sistem pendukung keputusan menggunakan algoritma Simple Additive
+                Weighting (SAW) untuk evaluasi parameter perkembangan tumbuh
+                kembang anak PAUD.
+              </p>
+              <div class="flex flex-wrap gap-1.5 mb-4">
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Algoritma SAW</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >CI 4</span
+                >
+                <span
+                  class="px-2 py-0.5 bg-[#1e201e] border border-outline/30 text-surface-variant font-mono text-[10px] rounded-sm"
+                  >Tailwind</span
+                >
+              </div>
+              <div
+                class="flex items-center mt-auto pt-3 border-t border-outline/30"
+              >
+                <span
+                  class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
+                  >calculate</span
+                >
+                <span class="font-mono text-[10px] text-surface-variant"
+                  >Normalized Weighting</span
+                >
+                <a
+                  class="font-mono text-label-md text-inverse-primary hover:text-[#1a1c1a] hover:bg-inverse-primary border border-inverse-primary/50 px-3 py-1 rounded-sm transition-all ml-auto flex items-center gap-1"
+                  href="https://github.com/Airmax21/SAW-PAUD"
+                  target="_blank"
+                >
+                  <span>&gt;_ EXECUTE</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Timeline Karier Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter py-section-gap border-t border-outline/30"
+        id="career"
+      >
+        <div class="mb-8 reveal-on-scroll">
+          <h2 class="font-display text-headline-lg text-surface-bright mb-2">
+            Timeline Karier
+          </h2>
+          <div class="w-16 h-[2px] bg-inverse-primary"></div>
+        </div>
+        <div class="relative border-l border-outline/30 ml-2 md:ml-3 space-y-8">
+          <!-- Career item 1 -->
+          <div class="relative pl-6 md:pl-8 reveal-on-scroll career-item">
+            <div
+              class="absolute w-2 h-2 bg-outline/50 rounded-full -left-[4.5px] top-2 item-dot"
+            ></div>
+            <h3
+              class="font-headline text-headline-md text-surface-bright text-[18px] mb-1 font-semibold"
+            >
+              Head of Software Engineering
+            </h3>
+            <p
+              class="font-mono text-label-md text-inverse-primary mb-2 text-[10px]"
+            >
+              Widya Robotics (PT Widya Inovasi Indonesia) // 2024 - Sekarang
             </p>
-
-            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 fade-in">
-                <!-- Project 1 -->
-                <div class="project-card h-80 relative">
-                    <div class="project-inner h-full w-full rounded-lg shadow-md">
-
-                        <div class="project-front h-full w-full bg-indigo-50 p-6">
-                            <div class="w-14 h-14 bg-indigo-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-shopping-cart text-indigo-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Kaku (Food Ordering platform)</h3>
-                            <p class="text-gray-600 mb-4">
-                                A full-featured food order with cart functionality and Scan table QR Code for order.
-                            </p>
-                            <div class="flex flex-wrap gap-2">
-                                <span
-                                    class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">Flutter</span>
-                                <span class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">CodeIgniter
-                                    3</span>
-                                <span
-                                    class="px-3 py-1 bg-indigo-100 text-indigo-800 rounded-full text-sm">PostgreSQL</span>
-                            </div>
-                        </div>
-
-                        <div
-                            class="project-back h-full w-full bg-indigo-600 text-white p-6 flex flex-col justify-center items-center">
-                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
-                            <ul class="space-y-2 text-center">
-                                <li>Product catalog with filters</li>
-                                <li>User authentication</li>
-                                <li>Scan QR Code</li>
-                                <li>Admin dashboard</li>
-                            </ul>
-                            <a href="#"
-                                class="mt-6 px-4 py-2 bg-white text-indigo-600 rounded font-medium hover:bg-gray-100 transition">
-                                View Project
-                            </a>
-                        </div>
-
-                    </div>
-                </div>
-
-
-                <!-- Project 2 -->
-                <div class="project-card h-80 relative">
-                    <div class="project-inner h-full w-full rounded-lg shadow-md">
-                        <div class="project-front h-full w-full bg-purple-50 p-6">
-                            <div class="w-14 h-14 bg-purple-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-chart-line text-purple-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Analytics Dashboard for Load Scanner</h3>
-                            <p class="text-gray-600 mb-4">Interactive data visualization tool for business metrics and
-                                KPIs.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Vue.js</span>
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Chart.js</span>
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">NestJS</span>
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Fluentbit</span>
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Loki</span>
-                                <span class="px-3 py-1 bg-purple-100 text-purple-800 rounded-full text-sm">Timescale</span>
-                            </div>
-                        </div>
-                        <div
-                            class="project-back h-full w-full bg-purple-600 text-white p-6 flex flex-col justify-center items-center">
-                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
-                            <ul class="space-y-2 text-center">
-                                <li>Customizable dashboards</li>
-                                <li>Real-time data updates</li>
-                                <li>Filters time, interval fetch, etc</li>
-                            </ul>
-                            <a href="#"
-                                class="mt-6 px-4 py-2 bg-white text-purple-600 rounded font-medium hover:bg-gray-100 transition">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 3 -->
-                <div class="project-card h-80 relative">
-                    <div class="project-inner h-full w-full rounded-lg shadow-md">
-                        <div class="project-front h-full w-full bg-pink-50 p-6">
-                            <div class="w-14 h-14 bg-pink-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-mobile-alt text-pink-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">MoNo (Money Management Mobile App)</h3>
-                            <p class="text-gray-600 mb-4">Money management application and
-                                progress charts.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Flutter</span>
-                                <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">SQLite</span>
-                                <span class="px-3 py-1 bg-pink-100 text-pink-800 rounded-full text-sm">Firebase</span>
-                            </div>
-                        </div>
-                        <div
-                            class="project-back h-full w-full bg-pink-600 text-white p-6 flex flex-col justify-center items-center">
-                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
-                            <ul class="space-y-2 text-center">
-                                <li>Expense Tracking</li>
-                                <li>Income Management</li>
-                                <li>Budget Planning</li>
-                                <li>Reports & Visualizations</li>
-                            </ul>
-                            <a href="#"
-                                class="mt-6 px-4 py-2 bg-white text-pink-600 rounded font-medium hover:bg-gray-100 transition">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 4 -->
-                <div class="project-card h-80 relative">
-                    <div class="project-inner h-full w-full rounded-lg shadow-md">
-                        <div class="project-front h-full w-full bg-blue-50 p-6">
-                            <div class="w-14 h-14 bg-blue-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-briefcase text-blue-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">ERP</h3>
-                            <p class="text-gray-600 mb-4">Software system that helps organizations manage and integrate their core business processes.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Vue</span>
-                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">Gin</span>
-                                <span class="px-3 py-1 bg-blue-100 text-blue-800 rounded-full text-sm">PostgreSQL</span>
-                            </div>
-                        </div>
-                        <div
-                            class="project-back h-full w-full bg-blue-600 text-white p-6 flex flex-col justify-center items-center">
-                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
-                            <ul class="space-y-2 text-center">
-                                <li>Finance & Accounting</li>
-                                <li>Inventory & Supply Chain Management</li>
-                                <li>Human Resource Management</li>
-                                <li>Manufacturing & Production</li>
-                            </ul>
-                            <a href="#"
-                                class="mt-6 px-4 py-2 bg-white text-blue-600 rounded font-medium hover:bg-gray-100 transition">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 5 -->
-                <div class="project-card h-80 relative">
-                    <div class="project-inner h-full w-full rounded-lg shadow-md">
-                        <div class="project-front h-full w-full bg-green-50 p-6">
-                            <div class="w-14 h-14 bg-green-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-map-marked-alt text-green-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">WebGIS</h3>
-                            <p class="text-gray-600 mb-4"> Designed to support decision-making processes across various domains.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">React</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">Leaflet</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">FastAPI</span>
-                                <span class="px-3 py-1 bg-green-100 text-green-800 rounded-full text-sm">PostGIS</span>
-                            </div>
-                        </div>
-                        <div
-                            class="project-back h-full w-full bg-green-600 text-white p-6 flex flex-col justify-center items-center">
-                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
-                            <ul class="space-y-2 text-center">
-                                <li>Interactive maps</li>
-                                <li>Layer Management</li>
-                                <li>Upload Assets SHP & GeoJSON</li>
-                                <li>Custom Markers & Popups</li>
-                            </ul>
-                            <a href="#"
-                                class="mt-6 px-4 py-2 bg-white text-green-600 rounded font-medium hover:bg-gray-100 transition">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Project 6 -->
-                <div class="project-card h-80 relative">
-                    <div class="project-inner h-full w-full rounded-lg shadow-md">
-                        <div class="project-front h-full w-full bg-yellow-50 p-6">
-                            <div class="w-14 h-14 bg-yellow-100 rounded-lg flex items-center justify-center mb-4">
-                                <i class="fas fa-message text-yellow-600 text-2xl"></i>
-                            </div>
-                            <h3 class="text-xl font-bold mb-2">Chat Messaging</h3>
-                            <p class="text-gray-600 mb-4">Platform for sending and receiving messages from other users.</p>
-                            <div class="flex flex-wrap gap-2">
-                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Flutter</span>
-                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Matrix</span>
-                                <span class="px-3 py-1 bg-yellow-100 text-yellow-800 rounded-full text-sm">Postgres</span>
-                            </div>
-                        </div>
-                        <div
-                            class="project-back h-full w-full bg-yellow-600 text-white p-6 flex flex-col justify-center items-center">
-                            <h3 class="text-xl font-bold mb-4 text-center">Key Features</h3>
-                            <ul class="space-y-2 text-center">
-                                <li>User Authentication</li>
-                                <li>Group Chat</li>
-                                <li>Media Sharing</li>
-                                <li>Push Notifications</li>
-                            </ul>
-                            <a href="#"
-                                class="mt-6 px-4 py-2 bg-white text-yellow-600 rounded font-medium hover:bg-gray-100 transition">View
-                                Project</a>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="py-16 bg-gray-50">
-        <div class="max-w-6xl mx-auto px-4">
-            <h2 class="text-3xl font-bold text-center mb-4 fade-in">Get In <span class="text-indigo-600">Touch</span>
-            </h2>
-            <p class="text-center text-gray-600 mb-12 max-w-2xl mx-auto fade-in">
-                Have a project in mind or want to discuss potential opportunities? Feel free to reach out!
+            <p
+              class="font-mono text-body-md text-surface-variant text-xs leading-relaxed"
+            >
+              Memimpin divisi software engineering dan merancang arsitektur core
+              data platform tingkat tinggi. Mengarahkan tim untuk pengembangan
+              sistem otomasi industri berbasis kecerdasan buatan, visualisasi
+              spasial 3D LiDAR, serta manajemen siklus deployment berkinerja
+              tinggi.
             </p>
+          </div>
 
-            <div class="flex flex-col md:flex-row gap-12 fade-in">
-                <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-lg shadow-md">
-                        <h3 class="text-xl font-semibold mb-6">Send me a message</h3>
-                        <form>
-                            <div class="mb-4">
-                                <label for="name" class="block text-gray-700 mb-2">Your Name</label>
-                                <input type="text" id="name"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="email" class="block text-gray-700 mb-2">Your Email</label>
-                                <input type="email" id="email"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            </div>
-                            <div class="mb-4">
-                                <label for="subject" class="block text-gray-700 mb-2">Subject</label>
-                                <input type="text" id="subject"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500">
-                            </div>
-                            <div class="mb-6">
-                                <label for="message" class="block text-gray-700 mb-2">Message</label>
-                                <textarea id="message" rows="4"
-                                    class="w-full px-4 py-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-indigo-500"></textarea>
-                            </div>
-                            <button type="submit"
-                                class="w-full px-6 py-3 bg-indigo-600 text-white rounded-lg font-medium hover:bg-indigo-700 transition">
-                                Send Message <i class="fas fa-paper-plane ml-2"></i>
-                            </button>
-                        </form>
-                    </div>
-                </div>
+          <!-- Career item 2 -->
+          <div class="relative pl-6 md:pl-8 reveal-on-scroll career-item">
+            <div
+              class="absolute w-2 h-2 bg-outline/50 rounded-full -left-[4.5px] top-2 item-dot"
+            ></div>
+            <h3
+              class="font-headline text-headline-md text-surface-bright text-[18px] mb-1 font-semibold"
+            >
+              Senior Backend Developer
+            </h3>
+            <p
+              class="font-mono text-label-md text-surface-variant mb-2 text-[10px]"
+            >
+              Widya Robotics // 2022 - 2024
+            </p>
+            <p
+              class="font-mono text-body-md text-surface-variant text-xs leading-relaxed"
+            >
+              Merancang infrastruktur backend menggunakan NestJS dengan
+              implementasi Clean Architecture dan pola DDD/CQRS.
+              Mengintegrasikan pemrosesan pengukuran menggunakan LiDAR dan
+              mengoptimalkan pipeline pesan antrean berbasis BullMQ untuk
+              pemrosesan volume data sensor berkapasitas besar.
+            </p>
+          </div>
 
-                <div class="md:w-1/2">
-                    <div class="bg-white p-8 rounded-lg shadow-md h-full">
-                        <h3 class="text-xl font-semibold mb-6">Contact Information</h3>
-                        <p class="text-gray-600 mb-8">
-                            I'm available for freelance work and full-time positions.
-                            Feel free to contact me using any of the methods below.
-                        </p>
-
-                        <div class="space-y-6">
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-indigo-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fas fa-map-marker-alt text-indigo-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Location</h4>
-                                    <p class="text-gray-600">Sleman, Yogyakarta</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-purple-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fas fa-envelope text-purple-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Email</h4>
-                                    <p class="text-gray-600">iqbal.agyan@gmail.com</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-pink-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fas fa-phone-alt text-pink-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Phone</h4>
-                                    <p class="text-gray-600">+62-895-6344-31764</p>
-                                </div>
-                            </div>
-
-                            <div class="flex items-start">
-                                <div
-                                    class="w-10 h-10 bg-blue-100 rounded-full flex items-center justify-center mr-4 mt-1">
-                                    <i class="fas fa-globe text-blue-600"></i>
-                                </div>
-                                <div>
-                                    <h4 class="font-semibold">Website</h4>
-                                    <p class="text-gray-600">www.airmax21.github.io</p>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="mt-8">
-                            <h4 class="font-semibold mb-4">Follow Me</h4>
-                            <div class="flex space-x-4">
-                                <a href="#"
-                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-indigo-100 hover:text-indigo-600 transition">
-                                    <i class="fab fa-github"></i>
-                                </a>
-                                <a href="#"
-                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-600 transition">
-                                    <i class="fab fa-linkedin-in"></i>
-                                </a>
-                                <a href="#"
-                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-blue-100 hover:text-blue-400 transition">
-                                    <i class="fab fa-instagram"></i>
-                                </a>
-                                <a href="#"
-                                    class="w-10 h-10 bg-gray-100 rounded-full flex items-center justify-center text-gray-700 hover:bg-red-100 hover:text-red-600 transition">
-                                    <i class="fab fa-facebook"></i>
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
+          <!-- Career item 3 -->
+          <div class="relative pl-6 md:pl-8 reveal-on-scroll career-item">
+            <div
+              class="absolute w-2 h-2 bg-outline/50 rounded-full -left-[4.5px] top-2 item-dot"
+            ></div>
+            <h3
+              class="font-headline text-headline-md text-surface-bright text-[18px] mb-1 font-semibold"
+            >
+              Full-stack Developer
+            </h3>
+            <p
+              class="font-mono text-label-md text-surface-variant mb-2 text-[10px]"
+            >
+              Techno Medic // 2019 - 2022
+            </p>
+            <p
+              class="font-mono text-body-md text-surface-variant text-xs leading-relaxed"
+            >
+              Merancang, mengembangkan, dan memelihara sistem inti SIMRS (Sistem
+              Informasi Manajemen Rumah Sakit) berskala enterprise menggunakan
+              CodeIgniter 3 (CI3). Berfokus pada pemodelan database relasional
+              yang kompleks, optimalisasi query beban kerja tinggi, serta
+              memastikan integritas dan keamanan rekaman data medis pasien.
+            </p>
+          </div>
         </div>
-    </section>
+      </section>
+
+      <!-- About Section -->
+      <section
+        class="bg-[#1e201e] py-section-gap border-y border-outline/30"
+        id="about"
+      >
+        <div
+          class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-8"
+        >
+          <div class="md:col-span-7 reveal-on-scroll">
+            <h2 class="font-display text-headline-lg text-surface-bright mb-4">
+              Filosofi Teknis
+            </h2>
+            <div class="w-16 h-[2px] bg-inverse-primary mb-6"></div>
+            <p class="font-body text-body-lg text-surface-variant mb-4">
+              Saya percaya bahwa perangkat lunak terbaik adalah yang dibangun
+              dengan memprioritaskan skalabilitas, efisiensi kode, dan
+              integritas data; ia berfungsi secara andal di bawah beban kerja
+              yang berat tanpa kompromi. Dengan latar belakang yang kuat dalam
+              arsitektur Clean Architecture, DDD, dan optimasi data pipeline,
+              saya mendekati setiap tantangan sebagai masalah struktural yang
+              membutuhkan solusi elegan, aman, serta siap pakai di lini
+              produksi.
+            </p>
+            <p class="font-body text-body-md text-surface-variant">
+              Fokus saya terletak pada menciptakan arsitektur sistem yang kokoh
+              yang dapat berkembang seiring kebutuhan kompleks bisnis. Saya
+              mengutamakan praktik kode yang bersih, otomasi komprehensif,
+              performa tingkat mikro, dan integrasi monitoring yang proaktif
+              untuk menjamin ketahanan sistem berskala tinggi.
+            </p>
+          </div>
+          <div
+            class="md:col-span-4 md:col-start-9 bg-[#242725] p-6 rounded border border-outline/30 font-mono reveal-on-scroll shadow-inner"
+            id="skills-box"
+          >
+            <h3
+              class="font-headline text-headline-md text-surface-bright mb-4 text-[18px]"
+            >
+              Keahlian Inti
+            </h3>
+            <div class="space-y-4">
+              <div>
+                <div
+                  class="flex justify-between font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                >
+                  <span>System_Architecture </span>
+                  <span class="text-inverse-primary font-bold">95%</span>
+                </div>
+                <div
+                  class="w-full bg-[#1a1c1a] h-1 border border-outline/30 overflow-hidden rounded-sm"
+                >
+                  <div
+                    class="bg-inverse-primary h-full skill-progress-bar"
+                    data-target="95%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="flex justify-between font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                >
+                  <span>Backend_Engineering </span>
+                  <span class="text-inverse-primary font-bold">92%</span>
+                </div>
+                <div
+                  class="w-full bg-[#1a1c1a] h-1 border border-outline/30 overflow-hidden rounded-sm"
+                >
+                  <div
+                    class="bg-inverse-primary h-full skill-progress-bar"
+                    data-target="92%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="flex justify-between font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                >
+                  <span>Data Engineering</span>
+                  <span class="text-inverse-primary font-bold">85%</span>
+                </div>
+                <div
+                  class="w-full bg-[#1a1c1a] h-1 border border-outline/30 overflow-hidden rounded-sm"
+                >
+                  <div
+                    class="bg-inverse-primary h-full skill-progress-bar"
+                    data-target="85%"
+                  ></div>
+                </div>
+              </div>
+              <div>
+                <div
+                  class="flex justify-between font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                >
+                  <span>Mobile Developer</span>
+                  <span class="text-inverse-primary font-bold">90%</span>
+                </div>
+                <div
+                  class="w-full bg-[#1a1c1a] h-1 border border-outline/30 overflow-hidden rounded-sm"
+                >
+                  <div
+                    class="bg-inverse-primary h-full skill-progress-bar"
+                    data-target="90%"
+                  ></div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- Contact Section -->
+      <section
+        class="max-w-container-max mx-auto px-gutter py-section-gap"
+        id="contact"
+      >
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
+          <div class="reveal-on-scroll">
+            <h2 class="font-display text-headline-lg text-surface-bright mb-2">
+              Mari Berkolaborasi
+            </h2>
+            <div class="w-16 h-[2px] bg-inverse-primary mb-4"></div>
+            <p class="font-mono text-body-md text-surface-variant mb-6 text-xs">
+              Tertarik untuk berdiskusi tentang arsitektur sistem, peluang
+              kepemimpinan teknis, atau kolaborasi open-source? Silakan hubungi
+              saya.
+            </p>
+            <form class="space-y-4 font-mono" id="contact-form">
+              <div>
+                <label
+                  class="block font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                  for="name"
+                  >&gt; Nama_Lengkap</label
+                >
+                <input
+                  class="w-full bg-[#242725] border border-outline/30 focus:border-inverse-primary focus:ring-1 focus:ring-inverse-primary/50 px-3 py-2 text-xs text-surface-bright transition-all rounded-sm input-field"
+                  id="name"
+                  type="text"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  class="block font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                  for="email"
+                  >&gt; Alamat_Email</label
+                >
+                <input
+                  class="w-full bg-[#242725] border border-outline/30 focus:border-inverse-primary focus:ring-1 focus:ring-inverse-primary/50 px-3 py-2 text-xs text-surface-bright transition-all rounded-sm input-field"
+                  id="email"
+                  type="email"
+                  required
+                />
+              </div>
+              <div>
+                <label
+                  class="block font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                  for="message"
+                  >&gt; Pesan_Anda</label
+                >
+                <textarea
+                  class="w-full bg-[#242725] border border-outline/30 focus:border-inverse-primary focus:ring-1 focus:ring-inverse-primary/50 px-3 py-2 text-xs text-surface-bright transition-all resize-none rounded-sm input-field"
+                  id="message"
+                  rows="3"
+                  required
+                ></textarea>
+              </div>
+              <button
+                class="font-mono text-label-md bg-transparent text-inverse-primary border border-inverse-primary px-6 py-2 rounded-sm hover:bg-inverse-primary hover:text-[#1a1c1a] font-semibold transition-all duration-300 mt-2 flex items-center gap-2 group"
+                type="submit"
+                id="submit-btn"
+              >
+                <span>[ Submit ]</span>
+                <span
+                  class="material-symbols-outlined text-[14px] transition-transform group-hover:translate-x-1"
+                  >send</span
+                >
+              </button>
+            </form>
+          </div>
+
+          <div
+            class="flex flex-col justify-center space-y-6 bg-[#242725] p-6 rounded border border-outline/30 font-mono reveal-on-scroll"
+            id="contact-info-card"
+          >
+            <div
+              class="flex items-start gap-3 group cursor-pointer p-2 rounded hover:bg-[#1e201e] transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-inverse-primary text-[24px] group-hover:scale-110 transition-transform duration-200"
+                >mail</span
+              >
+              <div>
+                <h4
+                  class="font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                >
+                  Email
+                </h4>
+                <p
+                  class="font-mono text-body-md text-surface-bright text-xs hover:text-inverse-primary transition-colors"
+                >
+                  iqbal.agyan@gmail.com
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 group cursor-pointer p-2 rounded hover:bg-[#1e201e] transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-inverse-primary text-[24px] group-hover:scale-110 transition-transform duration-200"
+                >call</span
+              >
+              <div>
+                <h4
+                  class="font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                >
+                  Kontak Seluler
+                </h4>
+                <p
+                  class="font-mono text-body-md text-surface-bright text-xs hover:text-inverse-primary transition-colors"
+                >
+                  +62 895-6344-31764
+                </p>
+              </div>
+            </div>
+
+            <div
+              class="flex items-start gap-3 group p-2 rounded hover:bg-[#1e201e] transition-colors"
+            >
+              <span
+                class="material-symbols-outlined text-inverse-primary text-[24px]"
+                >location_on</span
+              >
+              <div>
+                <h4
+                  class="font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                >
+                  Lokasi
+                </h4>
+                <p class="font-mono text-body-md text-surface-bright text-xs">
+                  Yogyakarta, Indonesia (Tersedia Remote)
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
 
     <!-- Footer -->
-    <footer class="py-8 bg-gray-900 text-white">
-        <div class="max-w-6xl mx-auto px-4">
-            <div class="flex flex-col md:flex-row justify-between items-center">
-                <div class="mb-4 md:mb-0">
-                    <span
-                        class="text-xl font-bold gradient-text bg-clip-text text-transparent bg-gradient-to-r from-purple-400 to-indigo-300">Portfolio</span>
-                </div>
-                <div class="text-gray-400 text-sm">
-                    © 2025 Ahmad Iqbal Agyan. All rights reserved.
-                </div>
-            </div>
+    <footer
+      class="bg-[#1a1c1a] full-width py-6 border-t border-outline/30 font-mono"
+    >
+      <div
+        class="max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center px-gutter gap-4 text-xs"
+      >
+        <span
+          class="font-mono text-label-md font-bold text-inverse-primary glow-accent tracking-wider"
+          >Iqbal.DEV</span
+        >
+        <span class="text-surface-variant text-center"
+          >© 2026 Technical Portfolio. Built with precision.</span
+        >
+        <div class="flex gap-4">
+          <a
+            class="text-surface-variant hover:text-inverse-primary transition-all duration-200 hover:-translate-y-0.5"
+            href="#"
+            >LinkedIn</a
+          >
+          <a
+            class="text-surface-variant hover:text-inverse-primary transition-all duration-200 hover:-translate-y-0.5"
+            href="#"
+            >GitLab</a
+          >
+          <a
+            class="text-surface-variant hover:text-inverse-primary transition-all duration-200 hover:-translate-y-0.5"
+            href="#"
+            >GitHub</a
+          >
         </div>
+      </div>
     </footer>
 
+    <!-- Animation Orchestration Script -->
     <script>
-        document.querySelector('.mobile-menu-button').addEventListener('click', function () {
-            document.querySelector('.mobile-menu').classList.toggle('hidden');
+      gsap.registerPlugin(ScrollTrigger);
+
+      document.addEventListener("DOMContentLoaded", () => {
+        // Init GSAP states
+        gsap.set(".reveal-on-scroll", { autoAlpha: 0, y: 30 });
+        gsap.set(".project-card", { autoAlpha: 0, y: 35 });
+        gsap.set(".skill-progress-bar", { width: "0%" });
+
+        // Intro Timeline
+        const introTimeline = gsap.timeline();
+        introTimeline
+          .to("#hero-title", { opacity: 1, duration: 0.4 })
+          .to("#terminal-text", {
+            duration: 1.5,
+            text: "Head of Software & Full-stack Developer.",
+            onStart: () => simulateTyping(),
+            ease: "none",
+          })
+          .to(
+            "#hero-description",
+            { opacity: 1, y: 0, duration: 0.6, ease: "power2.out" },
+            "-=0.3",
+          )
+          .to(
+            "#hero-btn",
+            { opacity: 1, y: 0, duration: 0.4, ease: "power2.out" },
+            "-=0.2",
+          )
+          .to(
+            "#hero-image-container",
+            { opacity: 1, scale: 1, duration: 0.8, ease: "back.out(1.2)" },
+            "-=0.5",
+          );
+
+        function simulateTyping() {
+          const textStr = "Head of Software & Full-stack Developer.";
+          const targetEl = document.getElementById("terminal-text");
+          let index = 0;
+          targetEl.innerHTML = "";
+
+          const interval = setInterval(() => {
+            if (index < textStr.length) {
+              targetEl.innerHTML += textStr.charAt(index);
+              index++;
+            } else {
+              clearInterval(interval);
+            }
+          }, 35);
+        }
+
+        gsap.fromTo(
+          ".custom-scanner",
+          { top: "0%" },
+          {
+            top: "75%",
+            duration: 2.5,
+            repeat: -1,
+            yoyo: true,
+            ease: "sine.inOut",
+          },
+        );
+        gsap.fromTo(
+          ".animate-arrow",
+          { x: 0 },
+          { x: 4, duration: 0.6, repeat: -1, yoyo: true, ease: "power1.inOut" },
+        );
+
+        // Reveal Animations
+        document.querySelectorAll(".reveal-on-scroll").forEach((el) => {
+          gsap.to(el, {
+            scrollTrigger: { trigger: el, start: "top 85%" },
+            autoAlpha: 1,
+            y: 0,
+            duration: 0.6,
+            ease: "power2.out",
+          });
         });
 
-        const fadeElements = document.querySelectorAll('.fade-in');
+        // Trigger Project Cards initial entry
+        gsap.to(".project-card", {
+          scrollTrigger: { trigger: "#projects", start: "top 65%" },
+          autoAlpha: 1,
+          y: 0,
+          duration: 0.6,
+          stagger: 0.1,
+          ease: "power2.out",
+        });
 
-        const fadeInOnScroll = function () {
-            fadeElements.forEach(element => {
-                const elementTop = element.getBoundingClientRect().top;
-                const windowHeight = window.innerHeight;
+        // DYNAMIC FILTER ENGINE
+        const filterButtons = document.querySelectorAll(".filter-btn");
+        const projectCards = document.querySelectorAll(".project-card");
 
-                if (elementTop < windowHeight - 100) {
-                    element.classList.add('visible');
-                }
+        filterButtons.forEach((btn) => {
+          btn.addEventListener("click", () => {
+            filterButtons.forEach((b) => {
+              b.classList.remove(
+                "bg-inverse-primary",
+                "text-[#1a1c1a]",
+                "font-semibold",
+              );
+              b.classList.add("bg-[#242725]", "text-surface-variant");
             });
-        };
+            btn.classList.add(
+              "bg-inverse-primary",
+              "text-[#1a1c1a]",
+              "font-semibold",
+            );
+            btn.classList.remove("bg-[#242725]", "text-surface-variant");
 
-        fadeInOnScroll();
+            const filterValue = btn.getAttribute("data-filter");
 
-        window.addEventListener('scroll', fadeInOnScroll);
-
-        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                e.preventDefault();
-
-                document.querySelector(this.getAttribute('href')).scrollIntoView({
-                    behavior: 'smooth'
+            gsap.to(projectCards, {
+              scale: 0.9,
+              autoAlpha: 0,
+              duration: 0.2,
+              ease: "power2.in",
+              onComplete: () => {
+                projectCards.forEach((card) => {
+                  const category = card.getAttribute("data-category");
+                  if (filterValue === "all" || category === filterValue) {
+                    card.style.display = "flex";
+                  } else {
+                    card.style.display = "none";
+                  }
                 });
 
+                gsap.to(projectCards, {
+                  scale: 1,
+                  autoAlpha: 1,
+                  duration: 0.4,
+                  stagger: 0.05,
+                  ease: "power2.out",
+                });
 
-                document.querySelector('.mobile-menu').classList.add('hidden');
+                ScrollTrigger.refresh();
+              },
             });
+          });
         });
-    </script>
-</body>
 
+        // Career Trigger
+        document.querySelectorAll(".career-item").forEach((item) => {
+          const dot = item.querySelector(".item-dot");
+          gsap.fromTo(
+            item,
+            { x: -20, autoAlpha: 0 },
+            {
+              scrollTrigger: { trigger: item, start: "top 80%" },
+              x: 0,
+              autoAlpha: 1,
+              duration: 0.5,
+              onStart: () => {
+                if (dot) {
+                  dot.classList.add("bg-inverse-primary", "glow-accent");
+                  dot.classList.remove("bg-outline/50");
+                }
+              },
+            },
+          );
+        });
+
+        // Skill Trigger
+        gsap.to(".skill-progress-bar", {
+          scrollTrigger: { trigger: "#skills-box", start: "top 80%" },
+          width: function (index, target) {
+            return target.getAttribute("data-target");
+          },
+          duration: 1.2,
+          ease: "power2.out",
+          stagger: 0.2,
+        });
+
+        // Form Animation & WORKING MAILTO ENGINE
+        const contactForm = document.getElementById("contact-form");
+        if (contactForm) {
+          contactForm.addEventListener("submit", (e) => {
+            e.preventDefault();
+
+            // Extract Form Values securely
+            const senderName = document.getElementById("name").value;
+            const senderEmail = document.getElementById("email").value;
+            const msgBody = document.getElementById("message").value;
+
+            // Target recipient email parameters
+            const recipient = "iqbal.agyan@gmail.com";
+            const subject = encodeURIComponent(
+              `[Portfolio Collaboration] - ${senderName}`,
+            );
+
+            // Format mail layout architecture
+            const bodyContent = encodeURIComponent(
+              `Halo Iqbal,\n\n` +
+                `${msgBody}\n\n` +
+                `-----------\n` +
+                `Pengirim: ${senderName}\n` +
+                `Email Kontak: ${senderEmail}`,
+            );
+
+            const btn = document.getElementById("submit-btn");
+            const btnText = btn.querySelector("span");
+
+            // Execute rapid tactical cyber visual feedback
+            gsap
+              .timeline()
+              .to(btn, { scale: 0.95, duration: 0.1 })
+              .to(btn, { scale: 1, duration: 0.1 })
+              .call(() => {
+                btnText.innerText = "[ Executing Mailer App... ]";
+                btn.style.borderColor = "#c8e8d0";
+                btn.style.color = "#c8e8d0";
+
+                // Fire native mailto event trigger
+                window.location.href = `mailto:${recipient}?subject=${subject}&body=${bodyContent}`;
+
+                // Clear state inputs cleanly
+                contactForm.reset();
+              });
+
+            setTimeout(() => {
+              btnText.innerText = "[ Submit ]";
+              btn.style.borderColor = "";
+              btn.style.color = "";
+            }, 4000);
+          });
+        }
+
+        // Active Nav
+        const sections = document.querySelectorAll("section");
+        const navLinks = document.querySelectorAll("#main-nav a");
+        window.addEventListener("scroll", () => {
+          let current = "";
+          sections.forEach((section) => {
+            if (pageYOffset >= section.offsetTop - 120)
+              current = section.getAttribute("id");
+          });
+          navLinks.forEach((link) => {
+            link.classList.remove(
+              "text-inverse-primary",
+              "border-b",
+              "border-inverse-primary",
+              "pb-1",
+            );
+            link.classList.add("text-surface-variant");
+            if (link.getAttribute("href") === `#${current}`) {
+              link.classList.remove("text-surface-variant");
+              link.classList.add(
+                "text-inverse-primary",
+                "border-b",
+                "border-inverse-primary",
+                "pb-1",
+              );
+            }
+          });
+        });
+      });
+    </script>
+  </body>
 </html>
