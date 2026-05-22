@@ -228,33 +228,56 @@
           href="#"
           >Iqbal.DEV</a
         >
-        <nav class="hidden md:flex gap-stack-md" id="main-nav">
-          <a
-            class="font-mono text-label-md text-inverse-primary border-b border-inverse-primary pb-1 transition-all"
-            href="#home"
-            >&gt; home</a
+        <div class="flex items-center gap-6">
+          <nav class="hidden md:flex gap-stack-md" id="main-nav">
+            <a
+              class="font-mono text-label-md text-inverse-primary border-b border-inverse-primary pb-1 transition-all"
+              href="#home"
+              >&gt; home</a
+            >
+            <a
+              class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+              href="#projects"
+              data-trans
+              data-lang-id="&gt; proyek"
+              data-lang-en="&gt; projects"
+              >&gt; projects</a
+            >
+            <a
+              class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+              href="#career"
+              data-trans
+              data-lang-id="&gt; karier"
+              data-lang-en="&gt; career"
+              >&gt; career</a
+            >
+            <a
+              class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+              href="#about"
+              data-trans
+              data-lang-id="&gt; filosofi"
+              data-lang-en="&gt; philosophy"
+              >&gt; philosophy</a
+            >
+            <a
+              class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
+              href="#contact"
+              data-trans
+              data-lang-id="&gt; kontak"
+              data-lang-en="&gt; contact"
+              >&gt; contact</a
+            >
+          </nav>
+
+          <!-- Language Switcher Button -->
+          <button
+            id="lang-switcher"
+            class="font-mono text-[11px] border border-inverse-primary/40 text-inverse-primary px-2.5 py-1 rounded hover:bg-inverse-primary/10 transition-all flex items-center gap-1 min-w-[54px] justify-center"
           >
-          <a
-            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
-            href="#projects"
-            >&gt; projects</a
-          >
-          <a
-            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
-            href="#career"
-            >&gt; career</a
-          >
-          <a
-            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
-            href="#about"
-            >&gt; philosophy</a
-          >
-          <a
-            class="font-mono text-label-md text-surface-variant hover:text-inverse-primary transition-all"
-            href="#contact"
-            >&gt; contact</a
-          >
-        </nav>
+            <span class="material-symbols-outlined text-[14px]">translate</span>
+            <span id="lang-label">EN</span>
+          </button>
+        </div>
       </div>
     </header>
 
@@ -269,7 +292,12 @@
             class="font-display text-display text-surface-bright mb-4 leading-tight opacity-0"
             id="hero-title"
           >
-            Hi, saya Iqbal.<br />
+            <span
+              data-trans
+              data-lang-id="Hi, saya Iqbal."
+              data-lang-en="Hi, I'm Iqbal."
+              >Hi, saya Iqbal.</span
+            ><br />
             <span
               class="text-inverse-primary glow-accent font-mono text-headline-lg terminal-cursor"
               id="terminal-text"
@@ -278,6 +306,9 @@
           <p
             class="font-mono text-body-lg text-surface-variant mb-6 max-w-2xl border-l-2 border-inverse-primary pl-4 opacity-0"
             id="hero-description"
+            data-trans
+            data-lang-id="Membangun arsitektur sistem yang skalabel, memimpin tim engineering menuju keunggulan, dan mengoptimalkan infrastruktur data. Berfokus pada pengiriman perangkat lunak yang tangguh dan efisien untuk skala enterprise."
+            data-lang-en="Building scalable system architectures, leading engineering teams toward excellence, and optimizing data infrastructure. Focused on delivering robust and efficient software at enterprise scale."
           >
             Membangun arsitektur sistem yang skalabel, memimpin tim engineering
             menuju keunggulan, dan mengoptimalkan infrastruktur data. Berfokus
@@ -289,7 +320,12 @@
             id="hero-btn"
             href="#projects"
           >
-            [ Execute: View Projects ]
+            <span
+              data-trans
+              data-lang-id="[ Eksekusi: Lihat Proyek ]"
+              data-lang-en="[ Execute: View Projects ]"
+              >[ Execute: View Projects ]</span
+            >
             <span class="material-symbols-outlined text-[16px] animate-arrow"
               >arrow_forward</span
             >
@@ -323,7 +359,12 @@
           class="flex flex-col md:flex-row md:items-end justify-between gap-4 mb-10 reveal-on-scroll"
         >
           <div>
-            <h2 class="font-display text-headline-lg text-surface-bright mb-2">
+            <h2
+              class="font-display text-headline-lg text-surface-bright mb-2"
+              data-trans
+              data-lang-id="Proyek Teknikal"
+              data-lang-en="Technical Projects"
+            >
               Proyek Teknikal
             </h2>
             <div class="w-16 h-[2px] bg-inverse-primary"></div>
@@ -396,6 +437,9 @@
               </h3>
               <p
                 class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+                data-trans
+                data-lang-id="Sistem Informasi Geografis (GIS) untuk manajemen data desa dan pemetaan aset tanah regional berbasis integrasi server spasial layer vector tiles."
+                data-lang-en="Geospatial Information System (GIS) for village data management and regional land asset mapping based on spatial server integration with vector tiles layer."
               >
                 Sistem Informasi Geografis (GIS) untuk manajemen data desa dan
                 pemetaan aset tanah regional berbasis integrasi server spasial
@@ -470,6 +514,9 @@
               </h3>
               <p
                 class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+                data-trans
+                data-lang-id="Dashboard pemrosesan analitik performa dari data log aktivitas sensor volume tinggi secara terpusat untuk monitoring stabilitas metrics."
+                data-lang-en="Performance analytics processing dashboard from high-volume sensor activity logs centrally managed for stability metrics monitoring."
               >
                 Dashboard pemrosesan analitik performa dari data log aktivitas
                 sensor volume tinggi secara terpusat untuk monitoring stabilitas
@@ -496,7 +543,11 @@
                   class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
                   >analytics</span
                 >
-                <span class="font-mono text-[10px] text-surface-variant"
+                <span
+                  class="font-mono text-[10px] text-surface-variant"
+                  data-trans
+                  data-lang-id="Log Otomatis"
+                  data-lang-en="Log Automated"
                   >Log Automated</span
                 >
               </div>
@@ -533,6 +584,9 @@
               </h3>
               <p
                 class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+                data-trans
+                data-lang-id="Aplikasi seluler pelacak manajemen keuangan personal berorientasi performa mikro, arsitektur monolitik bersih, dan visualisasi chart data interaktif."
+                data-lang-en="Personal financial management tracking mobile application oriented on micro-performance, clean monolithic architecture, and interactive data chart visualization."
               >
                 Aplikasi seluler pelacak manajemen keuangan personal
                 berorientasi performa mikro, arsitektur monolitik bersih, dan
@@ -559,7 +613,11 @@
                   class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
                   >account_balance_wallet</span
                 >
-                <span class="font-mono text-[10px] text-surface-variant"
+                <span
+                  class="font-mono text-[10px] text-surface-variant"
+                  data-trans
+                  data-lang-id="Penyimpanan Lokal Aman"
+                  data-lang-en="Local Storage Secure"
                   >Local Storage Secure</span
                 >
                 <a
@@ -603,6 +661,9 @@
               </h3>
               <p
                 class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+                data-trans
+                data-lang-id="Platform portal berita dan manajemen artikel interaktif berskala optimal dengan arsitektur rest-api cepat dan rendering konten responsif."
+                data-lang-en="News portal and interactive article management platform scaled optimally with fast rest-api architecture and responsive content rendering."
               >
                 Platform portal berita dan manajemen artikel interaktif berskala
                 optimal dengan arsitektur rest-api cepat dan rendering konten
@@ -629,7 +690,11 @@
                   class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
                   >article</span
                 >
-                <span class="font-mono text-[10px] text-surface-variant"
+                <span
+                  class="font-mono text-[10px] text-surface-variant"
+                  data-trans
+                  data-lang-id="Optimasi SSR"
+                  data-lang-en="SSR Optimized"
                   >SSR Optimized</span
                 >
                 <a
@@ -673,6 +738,9 @@
               </h3>
               <p
                 class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+                data-trans
+                data-lang-id="Sistem informasi katalog ikan hias digital terstruktur yang dioptimalkan untuk kecepatan pencarian inventaris taksonomi harian."
+                data-lang-en="Structured digital ornamental fish catalog information system optimized for rapid daily taxonomic inventory search speed."
               >
                 Sistem informasi katalog ikan hias digital terstruktur yang
                 dioptimalkan untuk kecepatan pencarian inventaris taksonomi
@@ -699,7 +767,11 @@
                   class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
                   >database</span
                 >
-                <span class="font-mono text-[10px] text-surface-variant"
+                <span
+                  class="font-mono text-[10px] text-surface-variant"
+                  data-trans
+                  data-lang-id="Mesin Pencari Cepat"
+                  data-lang-en="Fast Search Engine"
                   >Fast Search Engine</span
                 >
                 <a
@@ -743,6 +815,9 @@
               </h3>
               <p
                 class="font-mono text-body-md text-surface-variant mb-5 flex-grow text-xs leading-relaxed"
+                data-trans
+                data-lang-id="Sistem pendukung keputusan menggunakan algoritma Simple Additive Weighting (SAW) untuk evaluasi parameter perkembangan tumbuh kembang anak PAUD."
+                data-lang-en="Decision support system using the Simple Additive Weighting (SAW) algorithm for the evaluation of PAUD child growth development parameters."
               >
                 Sistem pendukung keputusan menggunakan algoritma Simple Additive
                 Weighting (SAW) untuk evaluasi parameter perkembangan tumbuh
@@ -769,7 +844,11 @@
                   class="material-symbols-outlined text-[18px] text-surface-variant mr-2"
                   >calculate</span
                 >
-                <span class="font-mono text-[10px] text-surface-variant"
+                <span
+                  class="font-mono text-[10px] text-surface-variant"
+                  data-trans
+                  data-lang-id="Pembobotan Ternormalisasi"
+                  data-lang-en="Normalized Weighting"
                   >Normalized Weighting</span
                 >
                 <a
@@ -791,7 +870,12 @@
         id="career"
       >
         <div class="mb-8 reveal-on-scroll">
-          <h2 class="font-display text-headline-lg text-surface-bright mb-2">
+          <h2
+            class="font-display text-headline-lg text-surface-bright mb-2"
+            data-trans
+            data-lang-id="Timeline Karier"
+            data-lang-en="Career Timeline"
+          >
             Timeline Karier
           </h2>
           <div class="w-16 h-[2px] bg-inverse-primary"></div>
@@ -810,10 +894,19 @@
             <p
               class="font-mono text-label-md text-inverse-primary mb-2 text-[10px]"
             >
-              Widya Robotics (PT Widya Inovasi Indonesia) // 2024 - Sekarang
+              Widya Robotics (PT Widya Inovasi Indonesia) //
+              <span
+                data-trans
+                data-lang-id="2024 - Sekarang"
+                data-lang-en="2024 - Present"
+                >2024 - Sekarang</span
+              >
             </p>
             <p
               class="font-mono text-body-md text-surface-variant text-xs leading-relaxed"
+              data-trans
+              data-lang-id="Memimpin divisi software engineering dan merancang arsitektur core data platform tingkat tinggi. Mengarahkan tim untuk pengembangan sistem otomasi industri berbasis kecerdasan buatan, visualisasi spasial 3D LiDAR, serta manajemen siklus deployment berkinerja tinggi."
+              data-lang-en="Leading the software engineering division and designing high-level core data platform architectures. Steering the team toward AI-driven industrial automation systems, 3D LiDAR spatial visualization, and high-performance deployment lifecycle management."
             >
               Memimpin divisi software engineering dan merancang arsitektur core
               data platform tingkat tinggi. Mengarahkan tim untuk pengembangan
@@ -840,6 +933,9 @@
             </p>
             <p
               class="font-mono text-body-md text-surface-variant text-xs leading-relaxed"
+              data-trans
+              data-lang-id="Merancang infrastruktur backend menggunakan NestJS dengan implementasi Clean Architecture dan pola DDD/CQRS. Mengintegrasikan pemrosesan pengukuran menggunakan LiDAR dan mengoptimalkan pipeline pesan antrean berbasis BullMQ untuk pemrosesan volume data sensor berkapasitas besar."
+              data-lang-en="Designing backend infrastructure using NestJS with Clean Architecture and DDD/CQRS patterns. Integrating LiDAR measurement data processing and optimizing BullMQ-based message queue pipelines for high-capacity sensor data processing."
             >
               Merancang infrastruktur backend menggunakan NestJS dengan
               implementasi Clean Architecture dan pola DDD/CQRS.
@@ -866,6 +962,9 @@
             </p>
             <p
               class="font-mono text-body-md text-surface-variant text-xs leading-relaxed"
+              data-trans
+              data-lang-id="Merancang, mengembangkan, dan memelihara sistem inti SIMRS (Sistem Informasi Manajemen Rumah Sakit) berskala enterprise menggunakan CodeIgniter 3 (CI3). Berfokus pada pemodelan database relasional yang kompleks, optimalisasi query beban kerja tinggi, serta memastikan integritas dan keamanan rekaman data medis pasien."
+              data-lang-en="Designing, developing, and maintaining core enterprise-scale HMIS (Hospital Management Information System) using CodeIgniter 3 (CI3). Focused on complex relational database modeling, high-workload query optimization, and ensuring patient medical record integrity and security."
             >
               Merancang, mengembangkan, dan memelihara sistem inti SIMRS (Sistem
               Informasi Manajemen Rumah Sakit) berskala enterprise menggunakan
@@ -886,11 +985,21 @@
           class="max-w-container-max mx-auto px-gutter grid grid-cols-1 md:grid-cols-12 gap-8"
         >
           <div class="md:col-span-7 reveal-on-scroll">
-            <h2 class="font-display text-headline-lg text-surface-bright mb-4">
+            <h2
+              class="font-display text-headline-lg text-surface-bright mb-4"
+              data-trans
+              data-lang-id="Filosofi Teknis"
+              data-lang-en="Technical Philosophy"
+            >
               Filosofi Teknis
             </h2>
             <div class="w-16 h-[2px] bg-inverse-primary mb-6"></div>
-            <p class="font-body text-body-lg text-surface-variant mb-4">
+            <p
+              class="font-body text-body-lg text-surface-variant mb-4"
+              data-trans
+              data-lang-id="Saya believe bahwa perangkat lunak terbaik adalah yang dibangun dengan memprioritaskan skalabilitas, efisiensi kode, dan integritas data; ia berfungsi secara andal di bawah beban kerja yang berat tanpa kompromi. Dengan latar belakang yang kuat dalam arsitektur Clean Architecture, DDD, dan optimasi data pipeline, saya mendekati setiap tantangan sebagai masalah struktural yang membutuhkan solusi elegan, aman, serta siap pakai di lini produksi."
+              data-lang-en="I believe the best software is built by prioritizing scalability, code efficiency, and data integrity; it functions reliably under heavy workloads without compromise. With a strong background in Clean Architecture, DDD, and data pipeline optimization, I approach every challenge as a structural issue requiring an elegant, secure, and production-ready solution."
+            >
               Saya percaya bahwa perangkat lunak terbaik adalah yang dibangun
               dengan memprioritaskan skalabilitas, efisiensi kode, dan
               integritas data; ia berfungsi secara andal di bawah beban kerja
@@ -900,7 +1009,12 @@
               membutuhkan solusi elegan, aman, serta siap pakai di lini
               produksi.
             </p>
-            <p class="font-body text-body-md text-surface-variant">
+            <p
+              class="font-body text-body-md text-surface-variant"
+              data-trans
+              data-lang-id="Fokus saya terletak pada menciptakan arsitektur sistem yang kokoh yang dapat berkembang seiring kebutuhan kompleks bisnis. Saya mengutamakan praktik kode yang bersih, otomasi komprehensif, performa tingkat mikro, dan integrasi monitoring yang proaktif untuk menjamin ketahanan sistem berskala tinggi."
+              data-lang-en="My focus lies in creating sound system architectures that evolve alongside complex business needs. I prioritize clean code practices, comprehensive automation, micro-level performance, and proactive monitoring integration to guarantee high-scale system resilience."
+            >
               Fokus saya terletak pada menciptakan arsitektur sistem yang kokoh
               yang dapat berkembang seiring kebutuhan kompleks bisnis. Saya
               mengutamakan praktik kode yang bersih, otomasi komprehensif,
@@ -914,6 +1028,9 @@
           >
             <h3
               class="font-headline text-headline-md text-surface-bright mb-4 text-[18px]"
+              data-trans
+              data-lang-id="Keahlian Inti"
+              data-lang-en="Core Expertise"
             >
               Keahlian Inti
             </h3>
@@ -994,11 +1111,21 @@
       >
         <div class="grid grid-cols-1 md:grid-cols-2 gap-12">
           <div class="reveal-on-scroll">
-            <h2 class="font-display text-headline-lg text-surface-bright mb-2">
+            <h2
+              class="font-display text-headline-lg text-surface-bright mb-2"
+              data-trans
+              data-lang-id="Mari Berkolaborasi"
+              data-lang-en="Let's Collaborate"
+            >
               Mari Berkolaborasi
             </h2>
             <div class="w-16 h-[2px] bg-inverse-primary mb-4"></div>
-            <p class="font-mono text-body-md text-surface-variant mb-6 text-xs">
+            <p
+              class="font-mono text-body-md text-surface-variant mb-6 text-xs"
+              data-trans
+              data-lang-id="Tertarik untuk berdiskusi tentang arsitektur sistem, peluang kepemimpinan teknis, atau kolaborasi open-source? Silakan hubungi saya."
+              data-lang-en="Interested in discussing system architecture, technical leadership opportunities, or open-source collaboration? Feel free to contact me."
+            >
               Tertarik untuk berdiskusi tentang arsitektur sistem, peluang
               kepemimpinan teknis, atau kolaborasi open-source? Silakan hubungi
               saya.
@@ -1008,6 +1135,9 @@
                 <label
                   class="block font-mono text-label-md text-surface-variant mb-1 text-[10px]"
                   for="name"
+                  data-trans
+                  data-lang-id="&gt; Nama_Lengkap"
+                  data-lang-en="&gt; Full_Name"
                   >&gt; Nama_Lengkap</label
                 >
                 <input
@@ -1021,6 +1151,9 @@
                 <label
                   class="block font-mono text-label-md text-surface-variant mb-1 text-[10px]"
                   for="email"
+                  data-trans
+                  data-lang-id="&gt; Alamat_Email"
+                  data-lang-en="&gt; Email_Address"
                   >&gt; Alamat_Email</label
                 >
                 <input
@@ -1034,6 +1167,9 @@
                 <label
                   class="block font-mono text-label-md text-surface-variant mb-1 text-[10px]"
                   for="message"
+                  data-trans
+                  data-lang-id="&gt; Pesan_Anda"
+                  data-lang-en="&gt; Your_Message"
                   >&gt; Pesan_Anda</label
                 >
                 <textarea
@@ -1048,7 +1184,12 @@
                 type="submit"
                 id="submit-btn"
               >
-                <span>[ Submit ]</span>
+                <span
+                  data-trans
+                  data-lang-id="[ Kirim ]"
+                  data-lang-en="[ Submit ]"
+                  >[ Submit ]</span
+                >
                 <span
                   class="material-symbols-outlined text-[14px] transition-transform group-hover:translate-x-1"
                   >send</span
@@ -1092,6 +1233,9 @@
               <div>
                 <h4
                   class="font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                  data-trans
+                  data-lang-id="Kontak Seluler"
+                  data-lang-en="Mobile Contact"
                 >
                   Kontak Seluler
                 </h4>
@@ -1113,10 +1257,18 @@
               <div>
                 <h4
                   class="font-mono text-label-md text-surface-variant mb-1 text-[10px]"
+                  data-trans
+                  data-lang-id="Lokasi"
+                  data-lang-en="Location"
                 >
                   Lokasi
                 </h4>
-                <p class="font-mono text-body-md text-surface-bright text-xs">
+                <p
+                  class="font-mono text-body-md text-surface-bright text-xs"
+                  data-trans
+                  data-lang-id="Yogyakarta, Indonesia (Tersedia Remote)"
+                  data-lang-en="Yogyakarta, Indonesia (Remote Available)"
+                >
                   Yogyakarta, Indonesia (Tersedia Remote)
                 </p>
               </div>
@@ -1137,9 +1289,14 @@
           class="font-mono text-label-md font-bold text-inverse-primary glow-accent tracking-wider"
           >Iqbal.DEV</span
         >
-        <span class="text-surface-variant text-center"
-          >© 2026 Technical Portfolio. Built with precision.</span
+        <span
+          class="text-surface-variant text-center"
+          data-trans
+          data-lang-id="© 2026 Portofolio Teknis. Dibangun dengan presisi."
+          data-lang-en="© 2026 Technical Portfolio. Built with precision."
         >
+          © 2026 Technical Portfolio. Built with precision.
+        </span>
         <div class="flex gap-4">
           <a
             class="text-surface-variant hover:text-inverse-primary transition-all duration-200 hover:-translate-y-0.5"
@@ -1170,14 +1327,35 @@
         gsap.set(".project-card", { autoAlpha: 0, y: 35 });
         gsap.set(".skill-progress-bar", { width: "0%" });
 
+        // Multi-language Text Dictionary & State Engine
+        let currentLang = localStorage.getItem("portfolio_lang") || "id";
+
+        const terminalTexts = {
+          id: "Head of Software & Full-stack Developer.",
+          en: "Head of Software & Full-stack Developer.",
+        };
+
+        const langButton = document.getElementById("lang-switcher");
+        const langLabel = document.getElementById("lang-label");
+
+        // FIXED LOGIC RESOLUTION
+        // Helper function to dynamically calculate next alternative option
+        function setButtonLabel(activeLang) {
+          langLabel.innerText = activeLang === "id" ? "ID" : "EN";
+        }
+
+        // Apply translation strings and label on boot load
+        updateDOMTranslation(currentLang);
+        setButtonLabel(currentLang);
+
         // Intro Timeline
         const introTimeline = gsap.timeline();
         introTimeline
           .to("#hero-title", { opacity: 1, duration: 0.4 })
           .to("#terminal-text", {
             duration: 1.5,
-            text: "Head of Software & Full-stack Developer.",
-            onStart: () => simulateTyping(),
+            text: terminalTexts[currentLang],
+            onStart: () => simulateTyping(terminalTexts[currentLang]),
             ease: "none",
           })
           .to(
@@ -1196,8 +1374,7 @@
             "-=0.5",
           );
 
-        function simulateTyping() {
-          const textStr = "Head of Software & Full-stack Developer.";
+        function simulateTyping(textStr) {
           const targetEl = document.getElementById("terminal-text");
           let index = 0;
           targetEl.innerHTML = "";
@@ -1210,6 +1387,30 @@
               clearInterval(interval);
             }
           }, 35);
+        }
+
+        // Language Switcher Toggle Event
+        langButton.addEventListener("click", () => {
+          currentLang = currentLang === "id" ? "en" : "id";
+          localStorage.setItem("portfolio_lang", currentLang);
+
+          // Instantly toggle target options label text and UI
+          setButtonLabel(currentLang);
+          updateDOMTranslation(currentLang);
+
+          gsap.killTweensOf("#terminal-text");
+          simulateTyping(terminalTexts[currentLang]);
+
+          ScrollTrigger.refresh();
+        });
+
+        function updateDOMTranslation(lang) {
+          document.querySelectorAll("[data-trans]").forEach((el) => {
+            const translatedText = el.getAttribute(`data-lang-${lang}`);
+            if (translatedText) {
+              el.innerHTML = translatedText;
+            }
+          });
         }
 
         gsap.fromTo(
@@ -1340,18 +1541,15 @@
           contactForm.addEventListener("submit", (e) => {
             e.preventDefault();
 
-            // Extract Form Values securely
             const senderName = document.getElementById("name").value;
             const senderEmail = document.getElementById("email").value;
             const msgBody = document.getElementById("message").value;
 
-            // Target recipient email parameters
             const recipient = "iqbal.agyan@gmail.com";
             const subject = encodeURIComponent(
               `[Portfolio Collaboration] - ${senderName}`,
             );
 
-            // Format mail layout architecture
             const bodyContent = encodeURIComponent(
               `Halo Iqbal,\n\n` +
                 `${msgBody}\n\n` +
@@ -1363,25 +1561,25 @@
             const btn = document.getElementById("submit-btn");
             const btnText = btn.querySelector("span");
 
-            // Execute rapid tactical cyber visual feedback
             gsap
               .timeline()
               .to(btn, { scale: 0.95, duration: 0.1 })
               .to(btn, { scale: 1, duration: 0.1 })
               .call(() => {
-                btnText.innerText = "[ Executing Mailer App... ]";
+                btnText.innerText =
+                  currentLang === "id"
+                    ? "[ Membuka Aplikasi Email... ]"
+                    : "[ Executing Mailer App... ]";
                 btn.style.borderColor = "#c8e8d0";
                 btn.style.color = "#c8e8d0";
 
-                // Fire native mailto event trigger
                 window.location.href = `mailto:${recipient}?subject=${subject}&body=${bodyContent}`;
-
-                // Clear state inputs cleanly
                 contactForm.reset();
               });
 
             setTimeout(() => {
-              btnText.innerText = "[ Submit ]";
+              btnText.innerText =
+                currentLang === "id" ? "[ Kirim ]" : "[ Submit ]";
               btn.style.borderColor = "";
               btn.style.color = "";
             }, 4000);
